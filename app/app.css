@@ -9,4 +9,19 @@ In many cases you may want to use the NativeScript core theme instead
 of writing your own CSS rules. For a full list of class names in the theme
 refer to http://docs.nativescript.org/ui/theme.
 */
+/*platform specific css*/
+@import url("~/platform.css");
+
+/*For Action Bar*/
 @import '~nativescript-theme-core/css/blue.css';
+/*styling for all pages*/
+Page {
+  background-color: white;
+  font-size: 15;
+}
+
+/*styling for all text fields*/
+TextField {
+  padding: 10;
+  font-size: 13;
+}
