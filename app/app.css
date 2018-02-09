@@ -25,3 +25,35 @@ TextField {
   padding: 10;
   font-size: 13;
 }
+.sidedrawer-left {
+    background-color: #D1C4E9;
+}
+
+.sidedrawer-left .sidedrawer-header {
+    background-color: #3d5afe;
+}
+
+.sidedrawer-left .sidedrawer-header .sidedrawer-header-image {
+    background-color: #3d5afe;
+    margin: 10;
+}
+
+.sidedrawer-left .sidedrawer-header .sidedrawer-header-brand {
+    color: #ffffff;
+    font-size: 30;
+}
+
+.sidedrawer-left .sidedrawer-content .sidedrawer-list-item {
+    color: black;
+}
+
+.sidedrawer-left .sidedrawer-content .sidedrawer-list-item .sidedrawer-list-item-text {
+    font-size: 20;
+    color: black;
+    border-width: 0;
+}
+
+
+.fa{
+  font-family: FontAwesome, fontawesome-webfont;
+}

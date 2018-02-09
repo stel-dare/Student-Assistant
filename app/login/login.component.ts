@@ -4,6 +4,8 @@ import { Page } from "ui/page";
 import { Color } from "color";
 import { View } from "ui/core/view";
 
+import { Router } from "@angular/router";
+
 
 
 @Component({
@@ -19,7 +21,7 @@ isLoggingIn = true;
 
     // This pattern makes use of Angular’s dependency injection implementation to inject an instance of the ItemService service into this class.
     // Angular knows about this service because it is included in your app’s main NgModule, defined in app.module.ts.
-    constructor(private page: Page) { }
+    constructor(private page: Page , private router: Router) { }
 
     ngOnInit(): void {
       this.page.actionBarHidden = true;
@@ -28,6 +30,7 @@ isLoggingIn = true;
 
     submit(){
       alert("you are using " + this.email);
+      this.router.navigate(["/home"]);
     }
 
     toggleDisplay(){

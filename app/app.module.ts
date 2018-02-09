@@ -2,13 +2,16 @@ import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { AppRoutingModule } from "./app.routing";
 import { AppComponent } from "./app.component";
+import { NativeScriptUISideDrawerModule } from "nativescript-telerik-ui/sidedrawer/angular";
 
 import { LoginComponent } from "./login/login.component";
+import { HomeComponent }  from "./home/home.component";
+import { DrawerComponent }  from "./drawer/drawer.component";
 
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
  import { NativeScriptFormsModule } from "nativescript-angular/forms";
-
+// NativeScriptUISideDrawerModule
 // Uncomment and add to NgModule imports  if you need to use the HTTP wrapper
 // import { NativeScriptHttpModule } from "nativescript-angular/http";
 
@@ -19,11 +22,14 @@ import { LoginComponent } from "./login/login.component";
     imports: [
         NativeScriptModule,
         AppRoutingModule,
-        NativeScriptFormsModule
+        NativeScriptFormsModule,
+        NativeScriptUISideDrawerModule
     ],
     declarations: [
         AppComponent,
-        LoginComponent
+        LoginComponent,
+        HomeComponent,
+        DrawerComponent
 
     ],
     providers: [
