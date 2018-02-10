@@ -4,9 +4,12 @@ import { AppRoutingModule } from "./app.routing";
 import { AppComponent } from "./app.component";
 import { NativeScriptUISideDrawerModule } from "nativescript-telerik-ui/sidedrawer/angular";
 
+
+//Components
 import { LoginComponent } from "./login/login.component";
 import { HomeComponent }  from "./home/home.component";
 import { DrawerComponent }  from "./drawer/drawer.component";
+import { CourseComponent }  from "./courses/courses.component";
 
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
@@ -29,7 +32,8 @@ import { DrawerComponent }  from "./drawer/drawer.component";
         AppComponent,
         LoginComponent,
         HomeComponent,
-        DrawerComponent
+        DrawerComponent,
+        CourseComponent
 
     ],
     providers: [

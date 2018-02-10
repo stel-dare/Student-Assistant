@@ -26,10 +26,13 @@ TextField {
   font-size: 13;
 }
 .sidedrawer-left {
-    background-color: #D1C4E9;
+    background-color:  #d8f8f3;
 }
 
 .sidedrawer-left .sidedrawer-header {
+    background-color: #3d5afe;
+}
+.sidedrawer-header {
     background-color: #3d5afe;
 }
 
