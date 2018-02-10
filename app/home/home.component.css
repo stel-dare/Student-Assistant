@@ -1,0 +1,16 @@
+GridLayout GridLayout{
+  margin: 20;
+  background-color:#b8f9ee;
+  border-radius: 10;
+}
+
+Label{
+  padding-top:50;
+  padding-bottom: 50;
+  font-size: 20;
+
+}
+
+Image{
+  padding:10;
+}

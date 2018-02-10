@@ -1,4 +1,8 @@
-<ActionBar title="Student Assistant" class="action-bar" ></ActionBar>
+
+<ActionBar title="Student Assistant" class="action-bar" >
+ <NavigationButton icon="res://ic_menu_white_24dp"></NavigationButton>
+</ActionBar>
+
 
 <RadSideDrawer #drawerComponent tkToggleNavButton showOverNavigation="true">
   <ScrollView tkDrawerContent class="sidedrawer-left">
@@ -8,13 +12,25 @@
   </ScrollView>
 
   <StackLayout tkMainContent class="page">
-<label class="h1" text="it worked"></label>
-<label class="h1" text="it worked"></label>
-<label class="h1" text="it worked"></label>
-<label class="h1" text="it worked"></label>
-<label class="h1" text="it worked"></label>
-<label class="h1" text="it worked"></label>
-<label class="h1" text="it worked"></label>
-<label class="h1" text="it worked"></label>
+
+<GridLayout rows="*,*,*">
+
+<GridLayout row ="0" columns="100,*" horizontalAlignment="stretch">
+  <Image col="0" src="res://loginimg" class="img-circle"></Image>
+  <Label text="My Courses" col="1" class="text-center"></Label>
+</GridLayout>
+
+<GridLayout row ="1" columns="100,*" horizontalAlignment="stretch">
+  <Image col="0" src="res://loginimg" class="img-circle"></Image>
+  <Label text="My Timetable And Events" col="1" class="text-center"></Label>
+</GridLayout>
+
+<GridLayout row ="2" columns="100,*" horizontalAlignment="stretch">
+  <Image col="0" src="res://loginimg" class="img-circle"></Image>
+  <Label text="Forum" col="1" class="text-center"></Label>
+</GridLayout>
+
+</GridLayout>
+
 </StackLayout>
 </RadSideDrawer>
