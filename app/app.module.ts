@@ -11,6 +11,8 @@ import { HomeComponent }  from "./home/home.component";
 import { DrawerComponent }  from "./drawer/drawer.component";
 import { CourseComponent }  from "./courses/courses.component";
 
+//Services
+import { CourseService } from "./courses/courseService.service";
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
  import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -37,7 +39,7 @@ import { CourseComponent }  from "./courses/courses.component";
 
     ],
     providers: [
-
+      CourseService
     ],
     schemas: [
         NO_ERRORS_SCHEMA

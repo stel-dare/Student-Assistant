@@ -1,5 +1,24 @@
 <ActionBar title="My Courses" class="action-bar" >
 <NavigationButton icon="res://ic_arrow_back_white_24dp" (tap)=goHome()></NavigationButton>
 
+<ActionItem
+     ios.systemIcon="16" ios.position="right"
+     text="Delete course" android.position="popup"></ActionItem>
 
+     <ActionItem
+          ios.systemIcon="16" ios.position="right"
+          text="Add course" android.position="popup"></ActionItem>
 </ActionBar>
+
+
+<ScrollView>
+
+<StackLayout>
+
+  <StackLayout  *ngFor="let course of userCourses" orientation="horizontal" class="course">
+      <Image src="res://loginimg" class="img-rounded" width="60"></Image>
+      <Label [text] = "course.name"></Label>
+    </StackLayout>
+
+</StackLayout>
+</ScrollView>
