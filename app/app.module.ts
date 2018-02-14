@@ -10,6 +10,7 @@ import { LoginComponent } from "./login/login.component";
 import { HomeComponent }  from "./home/home.component";
 import { DrawerComponent }  from "./drawer/drawer.component";
 import { CourseComponent }  from "./courses/courses.component";
+import { CourseDetailComponent }  from "./courseDetail/courseDetail.component";
 
 //Services
 import { CourseService } from "./courses/courseService.service";
@@ -35,7 +36,8 @@ import { CourseService } from "./courses/courseService.service";
         LoginComponent,
         HomeComponent,
         DrawerComponent,
-        CourseComponent
+        CourseComponent,
+        CourseDetailComponent
 
     ],
     providers: [

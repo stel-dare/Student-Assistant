@@ -15,9 +15,10 @@
 
 <StackLayout>
 
-  <StackLayout  *ngFor="let course of userCourses" orientation="horizontal" class="course">
-      <Image src="res://loginimg" class="img-rounded" width="60"></Image>
+  <StackLayout  *ngFor="let course of userCourses" orientation="horizontal" class="course" (tap)="goCourseDetail(course.name)">
+      <Image src="res://loginimg" class="img-rounded" width="60" ></Image>
       <Label [text] = "course.name"></Label>
+      <!--trying to pass the course -->
     </StackLayout>
 
 </StackLayout>

@@ -1,0 +1,14 @@
+<ActionBar [title]="courseNameReceived" class="action-bar" >
+<NavigationButton icon="res://ic_arrow_back_white_24dp" (tap)=goCourses()></NavigationButton>
+</ActionBar>
+
+<!--Tab  View-->
+
+<TabView selectedIndex="0" selectedColor="#1b3a4b" iosIconRenderingMode="alwaysOriginal" sdkExampleTitle sdkToggleNavButton >
+    <StackLayout *tabItem="{title: 'Course Outline'}" >
+
+    </StackLayout>
+    <StackLayout *tabItem="{title: 'Recommended Books'}">
+        
+    </StackLayout>
+</TabView>
