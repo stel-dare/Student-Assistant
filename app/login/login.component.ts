@@ -4,7 +4,9 @@ import { Page } from "ui/page";
 import { Color } from "color";
 import { View } from "ui/core/view";
 
-import { Router } from "@angular/router";
+//import { Router } from "@angular/router";
+//I used the routerExtensions instead of router because i wanted to use clearHistory
+import { RouterExtensions  } from "nativescript-angular/router";
 
 
 
@@ -19,9 +21,8 @@ email:string = "stelladare2@gmail.com";
 @ViewChild("container") container : ElementRef;
 isLoggingIn = true;
 
-    // This pattern makes use of Angular’s dependency injection implementation to inject an instance of the ItemService service into this class.
-    // Angular knows about this service because it is included in your app’s main NgModule, defined in app.module.ts.
-    constructor(private page: Page , private router: Router) { }
+
+    constructor(private page: Page , private routerExtensions: RouterExtensions) { }
 
     ngOnInit(): void {
       this.page.actionBarHidden = true;
@@ -30,7 +31,7 @@ isLoggingIn = true;
 
     submit(){
       alert("you are using " + this.email);
-      this.router.navigate(["/home"]);
+      this.routerExtensions.navigate(["/home"], { clearHistory: true });
     }
 
     toggleDisplay(){
