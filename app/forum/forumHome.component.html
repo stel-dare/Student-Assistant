@@ -1,0 +1,17 @@
+<ActionBar title="Forum" class="action-bar" >
+<NavigationButton icon="res://ic_arrow_back_white_24dp" (tap)=goHome()></NavigationButton>
+</ActionBar>
+
+<!--TAb View-->
+<TabView selectedIndex="0" selectedColor="#1b3a4b" iosIconRenderingMode="alwaysOriginal" sdkExampleTitle sdkToggleNavButton class="tab-view">
+    <StackLayout *tabItem="{title: 'Trending'}" >
+
+      <Button text="Click here" class="m-7 btn btn-outline" (tap)="goForumChat()"></Button>
+
+    </StackLayout>
+    <StackLayout *tabItem="{title: 'All Categories'}">
+
+        <Button text="Click here" class="m-7 btn btn-outline" (tap)="goForumChat()"></Button>
+
+    </StackLayout>
+</TabView>

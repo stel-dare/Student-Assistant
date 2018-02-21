@@ -1,0 +1,7 @@
+TabView {
+    tab-text-color: green;
+    tab-background-color: yellow;
+    selected-tab-text-color: red;
+    android-selected-tab-highlight-color: orange;
+
+}

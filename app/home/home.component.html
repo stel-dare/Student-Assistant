@@ -16,17 +16,17 @@
 
 <GridLayout rows="*,*,*">
 
-<GridLayout row ="0" columns="100,*" horizontalAlignment="stretch" (tap)="nav()">
+<GridLayout row ="0" columns="100,*" horizontalAlignment="stretch" (tap)="goCourses()">
   <Image col="0" src="res://loginimg" class="img-circle"></Image>
   <Label text="My Courses" col="1" class="text-center"></Label>
 </GridLayout>
 
-<GridLayout row ="1" columns="100,*" horizontalAlignment="stretch">
+<GridLayout row ="1" columns="100,*" horizontalAlignment="stretch" (tap)="goTimetableAndEvents()">
   <Image col="0" src="res://loginimg" class="img-circle"></Image>
   <Label text="My Timetable And Events" col="1" class="text-center"></Label>
 </GridLayout>
 
-<GridLayout row ="2" columns="100,*" horizontalAlignment="stretch">
+<GridLayout row ="2" columns="100,*" horizontalAlignment="stretch" (tap)="goForumHome()">
   <Image col="0" src="res://loginimg" class="img-circle"></Image>
   <Label text="Forum" col="1" class="text-center"></Label>
 </GridLayout>

@@ -1,0 +1,20 @@
+<ActionBar title="Class Schedule" class="action-bar" >
+<NavigationButton icon="res://ic_arrow_back_white_24dp" (tap)="goTimetableAndEvents()"></NavigationButton>
+</ActionBar>
+
+<ScrollView>
+  <StackLayout>
+
+<StackLayout *ngFor="let week of semesterTimetable" class="parentStack" (tap)="open()">
+<Label [text]="week.day" class="font-weight-bold m-b-20"></Label>
+
+<StackLayout *ngFor = "let class of week.courses">
+  <Label *ngIf="class.name==='' && tapped" text="Free Day...Hurray!!" class="font-italic"></Label>
+  <Label *ngIf="class.name!='' && tapped" [text] ="class.name + '  at  ' + class.time" class="font-italic body" ></Label>
+  <Label *ngIf="class.name!='' && tapped"[text]= "'Venue is ' + class.venue" class="font-italic"></Label>
+</StackLayout>
+</StackLayout>
+
+</StackLayout>
+
+</ScrollView>

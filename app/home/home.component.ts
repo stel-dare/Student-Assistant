@@ -24,8 +24,17 @@ export class HomeComponent extends DrawerPage implements OnInit {
 
     }
     //navigations start
-      nav(){
+      goCourses(){
         this.router.navigate(["/courses"]);
+      }
+
+      goTimetableAndEvents(){
+        this.router.navigate(["/timetableAndEvents"]);
+
+      }
+
+      goForumHome(){
+        this.router.navigate(["/forumHome"]);
       }
 
   //navigation ends

@@ -1,0 +1,23 @@
+<ActionBar title="My Timetable and Events" class="action-bar" >
+<NavigationButton icon="res://ic_arrow_back_white_24dp" (tap)=goHome()></NavigationButton>
+</ActionBar>
+
+
+<GridLayout rows="*,*,*">
+
+<GridLayout row ="0" columns="100,*" horizontalAlignment="stretch" (tap)="goClassSchedule()">
+  <Image col="0" src="res://loginimg" class="img-circle"></Image>
+  <Label text="Class Schedule" col="1" class="text-center"></Label>
+</GridLayout>
+
+<GridLayout row ="1" columns="100,*" horizontalAlignment="stretch" (tap)="goCollegeEvents()">
+  <Image col="0" src="res://loginimg" class="img-circle"></Image>
+  <Label text="College Events" col="1" class="text-center"></Label>
+</GridLayout>
+
+<GridLayout row ="2" columns="100,*" horizontalAlignment="stretch" (tap)="goMyTasks()">
+  <Image col="0" src="res://loginimg" class="img-circle"></Image>
+  <Label text="My Tasks" col="1" class="text-center"></Label>
+</GridLayout>
+
+</GridLayout>
