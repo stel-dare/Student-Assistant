@@ -1,6 +1,9 @@
 import { Component, OnInit } from "@angular/core";
 
 import { Router } from "@angular/router";
+//This routerExtensions is for navigating to a previous page.
+//It seems to be faster
+import { RouterExtensions  } from "nativescript-angular/router";
 
 //Classes
 import { Courses,timetable } from "./timetableClass";
@@ -20,7 +23,7 @@ export class ClassScheduleComponent implements OnInit {
 
      tapped :boolean = false;
 
-    constructor(private router: Router, private timetableService : TimeTableService) { }
+    constructor(private router: Router, private routerExtensions: RouterExtensions ,private timetableService : TimeTableService) { }
 
     ngOnInit(): void {
       this.semesterTimetable = this.timetableService.mytimetable;
@@ -34,7 +37,8 @@ export class ClassScheduleComponent implements OnInit {
     }
 
     //Nav
-    goTimetableAndEvents(){
-      this.router.navigate(["/timetableAndEvents"]);
+    goBackPage(){
+    this.routerExtensions.backToPreviousPage();
+
     }
 }
