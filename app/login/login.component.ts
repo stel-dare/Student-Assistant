@@ -30,7 +30,7 @@ isLoggingIn = true;
     }
 
     submit(){
-      alert("you are using " + this.email);
+      
       this.routerExtensions.navigate(["/home"], { clearHistory: true });
     }
 

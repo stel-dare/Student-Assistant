@@ -51,8 +51,8 @@ TextField {
 }
 
 .sidedrawer-left .sidedrawer-content .sidedrawer-list-item .sidedrawer-list-item-text {
-    font-size: 20;
-    color: black;
+    font-size: 25;
+    color:black;
     border-width: 0;
 }
 

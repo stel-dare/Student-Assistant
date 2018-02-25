@@ -1,7 +1,12 @@
 <ActionBar title="Student Assistant" class="action-bar" ></ActionBar>
 
-//login
-<StackLayout #container>
+<!--Trying to add ScrollView-->
+
+<ScrollView #container>
+<StackLayout class="scroll-cont">
+<StackLayout>
+
+
   <Image src="res://loginimg" stretch="none" horizontalAlignment="center"></Image>
 
 <TextField hint="Email Address" keyboardType="email"
@@ -11,4 +16,10 @@
 
    <Button [text]="isLoggingIn ? 'SIGN IN' : 'SIGN UP'" class="submit-button" (tap) = "submit()"></Button>
    <Button [text]="isLoggingIn ? 'SIGN UP' : 'BACK TO LOGIN'" (tap)="toggleDisplay()"></Button>
+
+
+
 </StackLayout>
+</StackLayout>
+
+</ScrollView>

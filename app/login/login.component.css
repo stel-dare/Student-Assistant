@@ -1,4 +1,5 @@
 /**/
+/*
 StackLayout {
   margin-left: 30;
   margin-right: 30;
@@ -22,4 +23,31 @@ Button, TextField {
   background-color: #CB1D00;
   color: white;
   margin-top: 20;
+}
+*/
+
+/*Trying out with percentages*/
+/*Percentages seem to be working fine*/
+/*ScrollView is ver complicated...I had to style the containers one by none
+Keeping this look for now*/
+ScrollView {
+  margin-left: 5%;
+  margin-right: 5%;
+  background-color:#c0cae5;
+  margin-top:12%;
+  margin-bottom:12%;
+}
+
+.scroll-cont{
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top:5%;
+  margin-bottom:8%;
+}
+
+
+.submit-button {
+  background-color: #CB1D00;
+  color: white;
+
 }
