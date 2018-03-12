@@ -14,13 +14,17 @@
    <TextField hint="Password" secure="true" [(ngModel)]="password"></TextField>
     <TextField *ngIf="!isLoggingIn" hint="Confirm Password" secure="true"  [(ngModel)]="confirmPassword"></TextField>
 
+<ActivityIndicator  busy="true"  class="activity-indicator"  width="30" height="30"></ActivityIndicator>
+
    <Button [text]="isLoggingIn ? 'SIGN IN' : 'SIGN UP'" class="submit-button" (tap) = "submit()"></Button>
-   <Button text="&#xf1a0; Sign in with Google" (tap)="googleLogin()" class="fa"></Button>
+   <Label text="--OR--"  class="text-center"></Label>
+   <Button text="&#xf1a0; Sign in with Google" (tap)="googleLogin()" class="fa" isEnabled="false"></Button>
    <!--
    <Button [text]="isLoggingIn ? 'SIGN UP' : 'BACK TO LOGIN'" (tap)="toggleDisplay()"></Button>
  -->
 
  <Label [text]="isLoggingIn ? 'Create an account' : 'Back to login'" (tap)="toggleDisplay()" class="labels text-center font-italic"> </Label>
+ <Label text="--+--" class="text-center"></Label>
  <Label text="forgot password ?" class="labels text-center font-italic" (tap)="logOut()" ></Label>
 
 

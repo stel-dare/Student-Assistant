@@ -14,10 +14,11 @@ import { MyTasksComponent }  from "./myTasks/myTasks.component";
 import { ForumHomeComponent } from "./forum/forumHome.component";
 import { ForumChatComponent } from "./forum/forumChat.component";
 
-
+//Services
+import { AuthRoute } from "./login/authRouteService.service";
 
 const routes: Routes = [
-   { path: "", redirectTo: "/login", pathMatch: "full" },
+   {path: "", component:  HomeComponent , canActivate:[AuthRoute]},
    { path: "login", component: LoginComponent },
    { path: "home", component: HomeComponent },
    { path: "courses", component: CourseComponent },

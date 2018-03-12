@@ -21,6 +21,7 @@ import { ForumChatComponent } from "./forum/forumChat.component";
 //Services
 import { CourseService } from "./courses/courseService.service";
 import { TimeTableService } from "./classSchedule/timetableService.service";
+import { AuthRoute } from "./login/authRouteService.service";
 
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
@@ -56,7 +57,8 @@ import { TimeTableService } from "./classSchedule/timetableService.service";
     ],
     providers: [
       CourseService,
-      TimeTableService
+      TimeTableService,
+      AuthRoute
     ],
     schemas: [
         NO_ERRORS_SCHEMA

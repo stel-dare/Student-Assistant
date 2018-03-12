@@ -55,7 +55,15 @@ isLoggingIn = true;
           ApplicationSettings.setNumber("authenticated",23);
 }
         )
-          .catch(error => console.log("He is laughing at me "+error));
+          .catch(error => {
+            console.log("He is laughing at me "+error);
+            dialogs.alert({
+              title: "Login Unsuccessful",
+              message: "Password or email is incorrect",
+              okButtonText: "OK"
+            });
+
+          });
         }
 
         //99999999999999999999 Creating new account
@@ -118,11 +126,15 @@ isLoggingIn = true;
       //this.routerExtensions.navigate(["/home"], { clearHistory: true });
 
 },
-     (errorMessage) => {
+     function(errorMessage){
       console.log(errorMessage);
       //this.IsProcessing = false;
     //  alert("Error");
-
+    dialogs.alert({
+      title: 'Login Unsuccessful',
+      message: 'Unable to log in.Please check your network',
+      okButtonText: 'OK'
+    });
 
     }
 );
