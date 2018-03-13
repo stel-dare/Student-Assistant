@@ -5,33 +5,68 @@
   <StackLayout>
 <GridLayout  rows="*,*"  class="profilePic">
         <Image row="0" col="0" src="res://loginimg" class="img-circle image" width="150"  ></Image>
-        <Label row="1" [text]=user  class="text-center font-italic h4 Username" ></Label>
+        <Label row="1" [text]=userEmail  class="text-center font-italic h4 Username" ></Label>
 
 </GridLayout>
 
-<GridLayout rows="*,*,*">
+<GridLayout rows="*,*,*" [visibility]="collapseProfile ? 'collapse' : 'visible'">
     <GridLayout  row="0" rows="*,*" columns="*" class="courseDetails">
         <Label row="0" col="0" text="Programme" class="font-weight-bold"></Label>
-        <Label row="1" col="0" text="Computer Engineering" ></Label>
+        <Label row="1" col="0" [text]="programme" ></Label>
 
       </GridLayout>
 
       <GridLayout row="1" rows="*,*" columns="*" class="courseDetails">
           <Label row="0" col="0" text="Year"  class="font-weight-bold"></Label>
-          <Label row="1" col="0" text="4" ></Label>
+          <Label row="1" col="0" [text]="year" ></Label>
 
         </GridLayout>
 
         <GridLayout row="2" rows="*,*" columns="*" class="courseDetails">
             <Label row="0" col="0" text="Semester"  class="font-weight-bold"></Label>
-            <Label row="1" col="0" text="2" ></Label>
+            <Label row="1" col="0" [text]="semester" ></Label>
 
           </GridLayout>
 
 
 </GridLayout>
 
-<Button class="btn btn-primary" text="Update"></Button>
+<Label [text]="updateProfileMessage" class=" text-center  text-danger font-italic font-weight-bold" *ngIf="profileSettings" [visibility]="collapseProfile ? 'collapse' : 'visible'"></Label>
+
+
+
+<Button class="btn btn-primary" text="Update" (tap)="collapseProfileButton()" [visibility]="collapseProfile ? 'collapse' : 'visible'"></Button>
+
+<!---ListPicker-->
+<StackLayout [visibility]="collapseProfile ? 'visible' : 'collapse'">
+
+
+<Label text="Programme" class="text-center m-y-30"></Label>
+
+
+<ListPicker #p class="programme" [items]="ProgrammArray" [selectedIndex]="selectedIndex"
+
+    (selectedIndexChange)="programmeChanged(p)"></ListPicker>
+
+
+
+<Label text="Year" class="text-center m-y-30" ></Label>
+
+<ListPicker #y class="year" [items]="YearArray" [selectedIndex]="selectedIndex"
+
+    (selectedIndexChange)="yearChanged(y)"></ListPicker>
+
+
+
+
+<Label text="Semester" class="text-center m-y-30"></Label>
+
+<ListPicker #s class="semester" [items]="SemesterArray" [selectedIndex]="selectedIndex"
+
+    (selectedIndexChange)="semesterChanged(s)"></ListPicker>
+
+            <Button class="btn btn-primary m-y-30"  text="update" (tap)="updatedProfile()"></Button>
+          </StackLayout>
 
 </StackLayout>
 </ScrollView>

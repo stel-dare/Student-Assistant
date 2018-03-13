@@ -24,7 +24,7 @@
  -->
 
  <Label [text]="isLoggingIn ? 'Create an account' : 'Back to login'" (tap)="toggleDisplay()" class="labels text-center font-italic" [visibility]="isProcessing ? 'collapse' : 'visible'"> </Label>
- <Label text="--+--" class="text-center"></Label>
+ <Label text="--+--" class="text-center"  [visibility]="isProcessing ? 'collapse' : 'visible'"></Label>
  <Label text="forgot password ?" class="labels text-center font-italic" (tap)="logOut()" [visibility]="isProcessing ? 'collapse' : 'visible'"></Label>
 
 
