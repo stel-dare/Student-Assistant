@@ -17,6 +17,7 @@ import { CollegeEventsComponent }  from "./collegeEvents/collegeEvents.component
 import { MyTasksComponent }  from "./myTasks/myTasks.component";
 import { ForumHomeComponent } from "./forum/forumHome.component";
 import { ForumChatComponent } from "./forum/forumChat.component";
+import { ProfileComponent } from "./profile/profile.component";
 
 //Services
 import { CourseService } from "./courses/courseService.service";
@@ -52,7 +53,8 @@ import { AuthRoute } from "./login/authRouteService.service";
         CollegeEventsComponent,
         MyTasksComponent,
         ForumHomeComponent,
-        ForumChatComponent
+        ForumChatComponent,
+        ProfileComponent
 
     ],
     providers: [

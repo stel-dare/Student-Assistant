@@ -24,9 +24,12 @@ import * as dialogs from "ui/dialogs";
     styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
+  //VAriables
 email:string = "stelladare@ymail.com";
 password:string = "stella1994";
 confirmPassword:string="";
+isProcessing= false;
 @ViewChild("container") container : ElementRef;
 isLoggingIn = true;
 
@@ -42,6 +45,7 @@ isLoggingIn = true;
     //7777777777777777When logging in with existing account
     if(this.isLoggingIn)
     {
+      this.isProcessing = true;
       firebase.login(
           {
             type: firebase.LoginType.PASSWORD,
@@ -57,18 +61,24 @@ isLoggingIn = true;
         )
           .catch(error => {
             console.log("He is laughing at me "+error);
+            this.isProcessing = false;
+
             dialogs.alert({
               title: "Login Unsuccessful",
-              message: "Password or email is incorrect",
+              message: error,
               okButtonText: "OK"
             });
 
           });
+            //activity indicator
+
         }
 
         //99999999999999999999 Creating new account
         else if(this.confirmPassword!="" && this.password===this.confirmPassword)
         {
+
+          this.isProcessing = true;
 
           firebase.createUser({
   email: this.email,
@@ -86,7 +96,8 @@ isLoggingIn = true;
       ApplicationSettings.setNumber("authenticated",23);
 
     },
-    function (errorMessage) {
+     (errorMessage) => {
+      this.isProcessing = false;
       dialogs.alert({
         title: "No user created",
         message: errorMessage,
@@ -94,6 +105,7 @@ isLoggingIn = true;
       })
     }
 );
+
 
         }
 
@@ -113,6 +125,8 @@ isLoggingIn = true;
 //555555555 GOOGLE LOGIN
     googleLogin(){
 
+    this.isProcessing = true;
+
       firebase.login({
   type: firebase.LoginType.GOOGLE,
 
@@ -126,22 +140,26 @@ isLoggingIn = true;
       //this.routerExtensions.navigate(["/home"], { clearHistory: true });
 
 },
-     function(errorMessage){
+     (errorMessage) => {
       console.log(errorMessage);
+      this.isProcessing = false;
       //this.IsProcessing = false;
     //  alert("Error");
+
+/* //producing runtime errors
     dialogs.alert({
       title: 'Login Unsuccessful',
-      message: 'Unable to log in.Please check your network',
+      message: errorMessage,
       okButtonText: 'OK'
     });
 
-    }
+  */
+  }
 );
 
 //if(ApplicationSettings.getNumber("authenticated")===23){
 
-//this.IsProcessing = true
+
 
     }
 

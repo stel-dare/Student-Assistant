@@ -1,0 +1,37 @@
+<ActionBar title="User Profile " class="action-bar" >
+<NavigationButton icon="res://ic_arrow_back_white_24dp" (tap)="goBackPage()"></NavigationButton>
+</ActionBar>
+<ScrollView>
+  <StackLayout>
+<GridLayout  rows="*,*"  class="profilePic">
+        <Image row="0" col="0" src="res://loginimg" class="img-circle image" width="150"  ></Image>
+        <Label row="1" [text]=user  class="text-center font-italic h4 Username" ></Label>
+
+</GridLayout>
+
+<GridLayout rows="*,*,*">
+    <GridLayout  row="0" rows="*,*" columns="*" class="courseDetails">
+        <Label row="0" col="0" text="Programme" class="font-weight-bold"></Label>
+        <Label row="1" col="0" text="Computer Engineering" ></Label>
+
+      </GridLayout>
+
+      <GridLayout row="1" rows="*,*" columns="*" class="courseDetails">
+          <Label row="0" col="0" text="Year"  class="font-weight-bold"></Label>
+          <Label row="1" col="0" text="4" ></Label>
+
+        </GridLayout>
+
+        <GridLayout row="2" rows="*,*" columns="*" class="courseDetails">
+            <Label row="0" col="0" text="Semester"  class="font-weight-bold"></Label>
+            <Label row="1" col="0" text="2" ></Label>
+
+          </GridLayout>
+
+
+</GridLayout>
+
+<Button class="btn btn-primary" text="Update"></Button>
+
+</StackLayout>
+</ScrollView>

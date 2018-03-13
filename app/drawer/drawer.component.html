@@ -14,29 +14,21 @@
 
 <GridLayout class="sidedrawer-header" rows="auto" columns="100, *">
         <Image row="0" col="0" src="res://loginimg" class="sidedrawer-header-image"></Image>
-        <Label row="0" col="1" text="Ristorante Con Fusion" class="sidedrawer-header-brand" textWrap="true"></Label>
+        <Label row="0" col="1" text="Student Assistant" class="sidedrawer-header-brand" textWrap="true"></Label>
 </GridLayout>
 <StackLayout class="sidedrawer-content" orientation="vertical">
     <GridLayout class="sidedrawer-list-item" rows="*" columns="50,*"
                  orientation="horizontal"
                  clearHistory="true">
-        <Label row="0" col="0" class="sidedrawer-list-item-text fa " text="&#xf2bd;"></Label>
-        <Label row="0" col="1" class="sidedrawer-list-item-text " text="Profile"></Label>
+        <Label row="0" col="0" class="sidedrawer-list-item-text fa " text="&#xf2bd;" (tap)="goProfile()"></Label>
+        <Label row="0" col="1" class="sidedrawer-list-item-text " text="Profile" (tap)="goProfile()"></Label>
 
       </GridLayout>
-
-      <GridLayout class="sidedrawer-list-item" rows="*" columns="50,*"
-                   orientation="horizontal"
-                   clearHistory="true">
-          <Label row="0" col="0" class="sidedrawer-list-item-text fa " text="&#xf0a1;"></Label>
-          <Label row="0" col="1" class="sidedrawer-list-item-text " text="Notifications"></Label>
-
-        </GridLayout>
 
         <GridLayout class="sidedrawer-list-item" rows="*" columns="50,*"
                      orientation="horizontal"
                      clearHistory="true">
-            <Label row="0" col="0" class="sidedrawer-list-item-text fa  " text="&#xf100;"></Label>
+            <Label row="0" col="0" class="sidedrawer-list-item-text fa  " text="&#xf08b;" (tap) = "logOut()"></Label>
             <Label row="0" col="1" class="sidedrawer-list-item-text" text="sign Out" (tap) = "logOut()"></Label>
 
           </GridLayout>

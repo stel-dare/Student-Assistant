@@ -33,4 +33,10 @@ export class DrawerComponent implements OnInit {
       console.log(ApplicationSettings.getNumber("authenticated"));
     }
 
+
+    goProfile(){
+      this.routerExtensions.navigate(["/profile"]);
+
+    }
+
 }

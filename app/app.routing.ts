@@ -13,6 +13,7 @@ import { CollegeEventsComponent }  from "./collegeEvents/collegeEvents.component
 import { MyTasksComponent }  from "./myTasks/myTasks.component";
 import { ForumHomeComponent } from "./forum/forumHome.component";
 import { ForumChatComponent } from "./forum/forumChat.component";
+import { ProfileComponent } from "./profile/profile.component";
 
 //Services
 import { AuthRoute } from "./login/authRouteService.service";
@@ -28,7 +29,9 @@ const routes: Routes = [
    { path: "collegeEvents", component: CollegeEventsComponent},
    { path: "myTasks", component: MyTasksComponent},
    { path: "forumHome", component: ForumHomeComponent},
-   { path: "forumChat", component: ForumChatComponent}
+   { path: "forumChat", component: ForumChatComponent},
+   { path: "profile", component: ProfileComponent}
+
 
 
 //    { path: "item/:id", component: ItemDetailComponent },
