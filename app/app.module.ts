@@ -18,6 +18,7 @@ import { MyTasksComponent }  from "./myTasks/myTasks.component";
 import { ForumHomeComponent } from "./forum/forumHome.component";
 import { ForumChatComponent } from "./forum/forumChat.component";
 import { ProfileComponent } from "./profile/profile.component";
+import { AboutUsComponent } from "./AboutUs/AboutUs.component";
 
 //Services
 import { CourseService } from "./courses/courseService.service";
@@ -54,7 +55,8 @@ import { AuthRoute } from "./login/authRouteService.service";
         MyTasksComponent,
         ForumHomeComponent,
         ForumChatComponent,
-        ProfileComponent
+        ProfileComponent,
+        AboutUsComponent
 
     ],
     providers: [

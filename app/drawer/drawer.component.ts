@@ -39,4 +39,8 @@ export class DrawerComponent implements OnInit {
 
     }
 
+    goAboutUs(){
+      this.routerExtensions.navigate(["/about-us"]);
+    }
+
 }

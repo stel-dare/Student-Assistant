@@ -14,6 +14,7 @@ import { MyTasksComponent }  from "./myTasks/myTasks.component";
 import { ForumHomeComponent } from "./forum/forumHome.component";
 import { ForumChatComponent } from "./forum/forumChat.component";
 import { ProfileComponent } from "./profile/profile.component";
+import { AboutUsComponent } from "./AboutUs/AboutUs.component";
 
 //Services
 import { AuthRoute } from "./login/authRouteService.service";
@@ -30,7 +31,8 @@ const routes: Routes = [
    { path: "myTasks", component: MyTasksComponent},
    { path: "forumHome", component: ForumHomeComponent},
    { path: "forumChat", component: ForumChatComponent},
-   { path: "profile", component: ProfileComponent}
+   { path: "profile", component: ProfileComponent},
+   { path: "about-us", component: AboutUsComponent}
 
 
 
