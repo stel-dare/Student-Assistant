@@ -19,12 +19,18 @@ firebase.init({
 //  user.userAuth=data.user.uid;
   //console.log("it worked "+ user.userAuth);
   ApplicationSettings.setNumber("authenticated",23);
+  ApplicationSettings.setString("userID",data.user.uid);
+  ApplicationSettings.setString("userEmail", data.user.email);
+
   console.log(ApplicationSettings.getNumber("authenticated"));
+  console.log(ApplicationSettings.getString("userID"));
 
   }
  else{
   ApplicationSettings.setNumber("authenticated",0);
   console.log(ApplicationSettings.getNumber("authenticated"));
+  ApplicationSettings.setString("userID","");
+  ApplicationSettings.setString("userEmail", "");
  }
 }
 }).then(

@@ -18,8 +18,8 @@ const firebase = require("nativescript-plugin-firebase");
 export class ProfileComponent implements OnInit {
 
   user:string;
-  userEmail:string;
-  userUid:string
+  userEmail:string=ApplicationSettings.getString("userEmail");
+  userUid:string = ApplicationSettings.getString("userID");
   programme:string="";
   semester:string="";
   year:string="";
@@ -47,35 +47,13 @@ semesterIndex:number;
     constructor(private routerExtensions: RouterExtensions) { }
 
     ngOnInit(): void {
-/* //Not needed anymore
-      if(this.programme===""){
-        this.updateProfileMessage = "Please Update Your profile";
-        ApplicationSettings.setString("profileSettings","notSet");
-        //For the warning label
-        this.profileSettings = true;
-        console.log(ApplicationSettings.getString("profileSettings"));
-      }
-
-      else{
-        ApplicationSettings.setString("profileSettings","set");
-        console.log(ApplicationSettings.getString("profileSettings"));
-      }
-*/
-
+/*
       firebase.getCurrentUser()
     .then((user) => {
       console.log("User uid: " + user.uid);
       this.userEmail=user.email;
       this.userUid = user.uid;
-/* //messing up
-      if(user.name!=""){
-        this.user=user.name;
-      }
-      else {
-        this.user = user.email;
-        console.log("it worked");
-      }
-      */
+
       firebase.getValue('/Users/'+this.userUid)
     .then((result) =>{
       console.log(JSON.stringify(result));
@@ -103,6 +81,30 @@ semesterIndex:number;
       }
     )
     .catch(error => console.log("Trouble in paradise: " + error));
+
+    */
+
+    firebase.getValue('/Users/'+this.userUid)
+  .then((result) =>{
+    console.log(JSON.stringify(result));
+    if(result.value===null){
+      this.updateProfileMessage = "Please Update Your profile";
+      ApplicationSettings.setString("profileSettings","notSet");
+      //For the warning label
+      this.profileSettings = true;
+      console.log(ApplicationSettings.getString("profileSettings"));
+    }
+
+    else{
+      this.programme = result.value.Programme;
+      this.year = result.value.Year;
+      this.semester = result.value.Semester;
+    }
+
+
+  })
+  .catch(error => console.log("Error: " + error));
+
 
     }
 
