@@ -1,0 +1,11 @@
+Label {
+  color: #e0a6fb;
+}
+
+GridLayout{
+  background-color:  #e6f9f2 ;
+}
+
+GridLayout Label{
+  font-size: 14;
+}

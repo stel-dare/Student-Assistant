@@ -1,33 +1,52 @@
 <ActionBar title="My Tasks" class="action-bar" >
 <NavigationButton icon="res://ic_arrow_back_white_24dp" (tap)="goBackPage()"></NavigationButton>
-<ActionItem icon="res://ic_add_white_24dp"></ActionItem>
+<ActionItem icon="res://ic_add_white_24dp"  (tap) = "collapseTasks()"></ActionItem>
 
 </ActionBar>
 
 <ScrollView>
 <StackLayout>
-<Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-<Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-<Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-<Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-<Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-<Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-<Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-<Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-<Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-<Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-<Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-<Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-<Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-<Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-<Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-<Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-<Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-<Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-<Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-<Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-<Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-<Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-<Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
+
+  <!--TAsks-->
+<StackLayout [visibility]="collapseTask ? 'collapse' : 'visible'">
+<!--
+<StackLayout *ngFor="let tas of TaskArray" class="m-10" >
 </StackLayout>
+-->
+<GridLayout columns="50, *, 50" rows="35, 35"  class="m-10 taskList" *ngFor="let tas of TaskArray">
+  <Label text="" row="0" col="0"  rowSpan="2" [backgroundColor]="tas.color"> </Label>
+
+  <Label [text]="tas.task" row="0" col="1"  class="text-center" [color]="tas.color"></Label>
+
+  <Label text="&#xf1f8;" row="0" col="2" rowSpan="2"  [color]="tas.color" class="text-center fa p-t-15"></Label>
+  <Label [text]="tas.date" row="1" col="1" [color]="tas.color"  class="text-left"></Label>
+
+
+</GridLayout>
+</StackLayout>
+
+<!--TAsks Modal-->
+<StackLayout [visibility]="collapseTask ? 'visible' : 'collapse'" class="taskLayout">
+
+  <Label text="Name of task" class="text-center font-italic p-20"></Label>
+
+ <TextField hint="Task Name"  [(ngModel)]="taskName" verticalAlignment="center" class="m-30"></TextField>
+
+<Label text="Date of task"  class="text-center font-italic p-20"></Label>
+
+ <DatePicker #D (loaded)="onPickerLoaded($event)" (dateChange)="onDateChanged($event)"
+(dayChange)="onDayChanged($event)" (monthChange)="onMonthChanged($event)" (yearChange)="onYearChanged($event)" verticalAlignment="center"></DatePicker>
+
+<Label text="Time of task"  class="text-center font-italic p-20"></Label>
+
+<TimePicker (loaded)="onTimePickerLoaded($event)" (timeChange)="onTimeChanged($event)" verticalAlignment="center" class="m-15"></TimePicker>
+
+  <Button class="btn btn-primary m-y-30"  text="Done" (tap)="addTasks()"></Button>
+
+</StackLayout>
+
+
+
+</StackLayout>
+
 </ScrollView>
