@@ -24,6 +24,7 @@ import { AboutUsComponent } from "./AboutUs/AboutUs.component";
 import { CourseService } from "./courses/courseService.service";
 import { TimeTableService } from "./classSchedule/timetableService.service";
 import { AuthRoute } from "./login/authRouteService.service";
+import { Outline } from "./courseDetail/courseDetailService.service";
 
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
@@ -62,7 +63,8 @@ import { AuthRoute } from "./login/authRouteService.service";
     providers: [
       CourseService,
       TimeTableService,
-      AuthRoute
+      AuthRoute,
+      Outline
     ],
     schemas: [
         NO_ERRORS_SCHEMA

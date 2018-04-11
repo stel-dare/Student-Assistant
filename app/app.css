@@ -48,6 +48,7 @@ TextField {
 
 .sidedrawer-left .sidedrawer-content .sidedrawer-list-item {
     color: black;
+    margin-top: 20;
 }
 
 .sidedrawer-left .sidedrawer-content .sidedrawer-list-item .sidedrawer-list-item-text {

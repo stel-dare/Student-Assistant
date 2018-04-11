@@ -15,11 +15,13 @@
 
 <StackLayout>
 
-  <StackLayout  *ngFor="let course of userCourses" orientation="horizontal" class="course" (tap)="goCourseDetail(course.name)">
+  <StackLayout  *ngFor="let course of userCourses" orientation="horizontal" class="course" (tap)="goCourseDetail(course.name,course.id)" [visibility]="checkProfile ? 'visible' : 'collapse'">
       <Image src="res://loginimg" class="img-rounded" width="60" ></Image>
-      <Label [text] = "course.name"></Label>
+      <Label [text] = "course.name" textWrap="true"></Label>
       <!--trying to pass the course -->
     </StackLayout>
+
+    <Label text="Please Update Your Profile" class=" text-center  text-danger font-italic font-weight-bold"  [visibility]="checkProfile ? 'collapse' : 'visible'"></Label>
 
 </StackLayout>
 </ScrollView>

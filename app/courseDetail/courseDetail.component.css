@@ -3,5 +3,12 @@ TabView {
     tab-background-color: yellow;
     selected-tab-text-color: red;
     android-selected-tab-highlight-color: orange;
-    
+
+}
+
+.topic{
+margin: 3%;
+margin-top:7%;
+
+  font-size: 20;
 }

@@ -24,7 +24,7 @@ const routes: Routes = [
    { path: "login", component: LoginComponent },
    { path: "home", component: HomeComponent },
    { path: "courses", component: CourseComponent },
-   { path: "courseDetail/:courseName", component: CourseDetailComponent},
+   { path: "courseDetail/:nameCourse/:courseCode", component: CourseDetailComponent},
    { path: "timetableAndEvents", component: TimetableAndEventsComponent},
    { path: "classSchedule", component: ClassScheduleComponent},
    { path: "collegeEvents", component: CollegeEventsComponent},

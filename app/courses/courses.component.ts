@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 
-import { Router} from "@angular/router";
+import { Router, NavigationExtras} from "@angular/router";
 //This routerExtensions is for navigating to a previous page.
 //It seems to be faster
 import { RouterExtensions  } from "nativescript-angular/router";
@@ -15,16 +15,25 @@ import { CourseService } from "./courseService.service";
     styleUrls: ['./courses.component.css']
 })
 export class CourseComponent implements OnInit {
-
-    userCourses:Courses[];
+    //properties of the StackLayout in the html file
+    userCourses:Courses[]=[];
+    checkProfile:boolean;
     nameCourse:string;
+    courseCode:string;
+    
 
 
 
     constructor(private router: Router,  private routerExtensions: RouterExtensions ,private courseService: CourseService) { }
 
     ngOnInit(): void {
-        this.userCourses = this.courseService.myCourses;
+      //this uses courseService to check if user has set profile
+        this.checkProfile = this.courseService.checkIfProfileUpdated();
+        //this uses courseService to update the StackLayout in the html file
+        this.userCourses = this.courseService.getCoursesFromFirebase();
+        //for debugging
+        console.log('this.courses ' +this.userCourses );
+        console.log('this.checkProfile ' +this.checkProfile );
     }
 
 //navigations start
@@ -33,9 +42,20 @@ export class CourseComponent implements OnInit {
 
       }
 
-    goCourseDetail(name:any){
+//this method uses router parameters to send name of course clicked to next page
+    goCourseDetail(name:any,id:any){
       this.nameCourse = name;
-  this.router.navigate(["/courseDetail", this.nameCourse]);
+      this.courseCode = id;
+
+    /*
+      navigationExtras: NavigationExtras = {
+           queryParams: {
+               "courseName": name,
+               "courseID": id
+           }
+       };
+*/
+  this.router.navigate(["/courseDetail", this.nameCourse,this.courseCode]);
 }
 
 }

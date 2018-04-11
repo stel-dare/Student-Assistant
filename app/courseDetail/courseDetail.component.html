@@ -9,38 +9,17 @@
       <ScrollView>
 <StackLayout>
 
-<!--Tab Contents go here -->
-<Label text="Stel" class="h1"></Label>
-<Label text="Stel" class="h1"></Label>
-<Label text="Stel" class="h1"></Label>
-<Label text="Stel" class="h1"></Label>
-<Label text="Stel" class="h1"></Label>
-<Label text="Stel" class="h1"></Label>
-<Label text="Stel" class="h1"></Label>
-<Label text="Stel" class="h1"></Label>
-<Label text="Stel" class="h1"></Label>
-<Label text="Stel" class="h1"></Label>
-<Label text="Stel" class="h1"></Label>
-<Label text="Stel" class="h1"></Label>
-<Label text="Stel" class="h1"></Label>
-<Label text="Stel" class="h1"></Label>
-<Label text="Stel" class="h1"></Label>
-<Label text="Stel" class="h1"></Label>
-<Label text="Stel" class="h1"></Label>
-<Label text="Stel" class="h1"></Label>
-<Label text="Stel" class="h1"></Label>
-<Label text="Stel" class="h1"></Label>
-<Label text="Stel" class="h1"></Label>
-<Label text="Stel" class="h1"></Label>
-<Label text="Stel" class="h1"></Label>
-<Label text="Stel" class="h1"></Label>
-<Label text="Stel" class="h1"></Label>
-<Label text="Stel" class="h1"></Label>
-<Label text="Stel" class="h1"></Label>
-<Label text="Stel" class="h1"></Label>
-<Label text="Stel" class="h1"></Label>
-<Label text="Stel" class="h1"></Label>
-<Label text="Stel" class="h1"></Label>
+<!--Tab Contents go here-->
+
+<StackLayout  *ngFor="let topic of outline" orientation="horizontal" class="course">
+
+    <Label [text] = "topic.topic" class="topic body" textWrap="true"></Label>
+
+
+    <!--trying to pass the course -->
+  </StackLayout>
+
+
 
 
 </StackLayout>
