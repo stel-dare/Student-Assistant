@@ -16,10 +16,10 @@
 <GridLayout columns="50, *, 50" rows="35, 35"  class="m-10 taskList" *ngFor="let tas of TaskArray; let i = index">
   <Label text="" row="0" col="0"  rowSpan="2" [backgroundColor]="tas.color"> </Label>
 
-  <Label [text]="tas.task" row="0" col="1"  class="text-center" [color]="tas.color"></Label>
+  <Label [text]="tas.task" row="0" col="1"  class="text-center body" [color]="tas.color"  ></Label>
 
   <Label text="&#xf1f8;" row="0" col="2" rowSpan="2"  [color]="tas.color" class="text-center fa p-t-15" (tap)="deleteTask(i,tas.key)"></Label>
-  <Label [text]="tas.date" row="1" col="1" [color]="tas.color"  class="text-left"></Label>
+  <Label [text]="tas.date" row="1" col="1" [color]="tas.color"  class="text-left" ></Label>
 
 
 </GridLayout>
@@ -30,7 +30,7 @@
 
   <Label text="Name of task" class="text-center font-italic p-20"></Label>
 
- <TextField hint="Task Name"  [(ngModel)]="taskName" verticalAlignment="center" class="m-30"></TextField>
+ <TextField hint="Task Name"  [(ngModel)]="taskName" verticalAlignment="center" class="m-30" fontSize=17></TextField>
 
 <Label text="Date of task"  class="text-center font-italic p-20"></Label>
 

@@ -5,6 +5,8 @@ import { Router } from "@angular/router";
 //It seems to be faster
 import { RouterExtensions  } from "nativescript-angular/router";
 
+import { EventService } from './eventService.service';
+
 
 @Component({
     selector: "ns-events",
@@ -14,11 +16,15 @@ import { RouterExtensions  } from "nativescript-angular/router";
 })
 export class CollegeEventsComponent implements OnInit {
 
+events = [];
 
-
-    constructor(private router: Router, private routerExtensions: RouterExtensions) { }
+    constructor(private router: Router, private routerExtensions: RouterExtensions, private eventService:EventService) { }
 
     ngOnInit(): void {
+
+      this.events = this.eventService.getEvents();
+      console.log("events " + this.events);
+
 }
 
 

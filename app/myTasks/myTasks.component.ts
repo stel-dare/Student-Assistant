@@ -25,9 +25,9 @@ export class MyTasksComponent implements OnInit {
   colors=["#4f2729","#d2575e","#c03ea2" ,"#833ec0", "#1c3ad7","#ffc0cb", "#008080","#ffd700", "#0000ff", "#ffa500",
 "#800080", "#003366","#f6546a","#ff00ff", "#0e2f44", "#808080" ,"#daa520", "#000080", "#000080"];
 
-
+//The array displayed in the view
   TaskArray=[];
-
+//Variables for date and timepicker
   chosenDate:any;
   chosenTime:any;
   finalDate:any;
@@ -40,7 +40,17 @@ finalDateFire:any;
 
 
     ngOnInit(): void {
-      //checks database to load all tasks
+    //Used to sort data according tpo the timestamp
+    function  compare(a,b) {
+     if (a.timeStamp < b.timeStamp)
+     return -1;
+     if (a.timeStamp > b.timeStamp)
+     return 1;
+     return 0;
+     }
+
+
+//checks database to load all tasks
       firebase.getValue( '/Tasks/'+ApplicationSettings.getString("userID"))
          .then((result) =>{
            console.log(JSON.stringify(result));
@@ -48,9 +58,11 @@ finalDateFire:any;
            for (var key in result.value) {
         this.taskFire = result.value[key].Task;
         this.finalDateFire = result.value[key].DateOfTask + "  |  " + result.value[key].TimeOfTask;
-        this.TaskArray.push({task:this.taskFire,color:this.colors[Math.floor(Math.random() * 19)], date: this.finalDateFire, key:key});
+        this.TaskArray.push({task:this.taskFire,color:this.colors[Math.floor(Math.random() * 19)], date: this.finalDateFire, key:key, timeStamp:result.value[key].updateTs});
 
      }
+     this.TaskArray=this.TaskArray.sort(compare);
+
          } )
          .catch(error => console.log("Error: " + error));
 
@@ -63,10 +75,12 @@ finalDateFire:any;
     this.routerExtensions.backToPreviousPage();
 
     }
-
+//USed to collapse the plus
     collapseTasks(){
       this.collapseTask = true;
     }
+
+    //Date picker and time picker functions
 
     onPickerLoaded(args) {
     let datePicker = <DatePicker>args.object;
@@ -106,7 +120,7 @@ onTimeChanged(args) {
 }
 
 
-
+//This pushes the user's task to firebase
 
 addTasks(){
   //THis function seems to do a lot of things
@@ -124,11 +138,11 @@ addTasks(){
 //One from firebase and one called Task array
   firebase.push(
      '/Tasks/'+ApplicationSettings.getString("userID"),
-     {Task:this.taskName, DateOfTask: this.chosenDate,  TimeOfTask:this.chosenTime}
+     {Task:this.taskName, DateOfTask: this.chosenDate,  TimeOfTask:this.chosenTime, updateTs: firebase.ServerValue.TIMESTAMP}
  ).then(
        (result) => {
         console.log("created key: " + result.key);
-        this.TaskArray.push({task:this.taskName,color:new Color (this.colors[Math.floor(Math.random() * 19)]), date: this.finalDate ,key:result.key});
+        this.TaskArray.push({task:this.taskName,color:new Color (this.colors[Math.floor(Math.random() * 19)]), date: this.finalDate ,key:result.key, timeStamp:firebase.ServerValue.TIMESTAMP});
         console.log(JSON.stringify(this.TaskArray));
         this.taskName="";
       }

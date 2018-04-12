@@ -6,32 +6,20 @@
 <ScrollView>
 <StackLayout>
 
-    <Label text="No upcoming events" class="text-center h1"></Label>
-    <Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-    <Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-    <Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-    <Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-    <Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-    <Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-    <Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-    <Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-    <Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-    <Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-    <Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-    <Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-    <Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-    <Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-    <Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-    <Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-    <Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-    <Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-    <Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-    <Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-    <Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-    <Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-    <Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-    <Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
-    <Label text="No Tasks To Keep Track Of" class="text-center h1"></Label>
+<!--
+  <StackLayout  *ngFor="let event of events" orientation="horizontal" >
+
+      <Label [text] = "event.eventAbout" textWrap="true"></Label>
+      trying to pass the course
+    </StackLayout>
+    -->
+
+    <CardView class="innerCardStyle">
+           <StackLayout>
+             <Label class="header" text="Welcome!"></Label>
+             <Label textWrap="true" text="Practice Buddy helps students become better musicians, and music teachers mentor their students."></Label>
+           </StackLayout>
+       </CardView>
 
 
 </StackLayout>
