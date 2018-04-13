@@ -21,6 +21,7 @@
     "@angular/router": "~5.2.0",
     "font-awesome": "^4.7.0",
     "nativescript-angular": "~5.2.0",
+    "nativescript-cardview": "^2.0.5",
     "nativescript-plugin-firebase": "^5.1.8",
     "nativescript-telerik-ui": "^3.1.4",
     "nativescript-theme-core": "~1.0.4",
