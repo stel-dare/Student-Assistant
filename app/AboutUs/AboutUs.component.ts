@@ -2,6 +2,8 @@ import { Component, OnInit } from "@angular/core";
 
 import { RouterExtensions  } from "nativescript-angular/router";
 
+import {EkuaResume, StellaResume, AboutThisProject, aboutUsFacade} from './ourHistory';
+
 
 @Component({
     selector: "ns-items",
@@ -10,6 +12,12 @@ import { RouterExtensions  } from "nativescript-angular/router";
     styleUrls: ['./AboutUs.component.css']
 })
 export class AboutUsComponent implements OnInit {
+aboutEkua=new EkuaResume();
+ aboutStel = new StellaResume();
+ aboutProject = new AboutThisProject();
+ aboutUS = new aboutUsFacade(this.aboutEkua,this.aboutStel,this.aboutProject);
+
+
 
 
     // This pattern makes use of Angular’s dependency injection implementation to inject an instance of the ItemService service into this class.
@@ -23,5 +31,10 @@ export class AboutUsComponent implements OnInit {
     goBackPage(){
     this.routerExtensions.backToPreviousPage();
 
+    }
+
+    seeUs(){
+   //this.aboutUS.seeAboutUs();
+   this.aboutUS.projectDifficulty();
     }
 }
