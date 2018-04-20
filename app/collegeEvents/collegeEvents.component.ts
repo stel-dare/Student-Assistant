@@ -5,8 +5,8 @@ import { Router } from "@angular/router";
 //It seems to be faster
 import { RouterExtensions  } from "nativescript-angular/router";
 import { Page } from "ui/page";
-import * as elementRegistryModule from 'nativescript-angular/element-registry';
-elementRegistryModule.registerElement("CardView", () => require("nativescript-cardview").CardView);
+//import * as elementRegistryModule from 'nativescript-angular/element-registry';
+//elementRegistryModule.registerElement("CardView", () => require("nativescript-cardview").CardView);
 
 import { EventService } from './eventService.service';
 

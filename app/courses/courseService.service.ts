@@ -19,6 +19,12 @@ semester:string;
 myCourses:Courses[] =[];
 myOutline=[];
 myTopic=[];
+//myTimetable = [];
+Monday = [];
+Tuesday = [];
+Wednesday = [];
+Thursday = [];
+Friday = [];
 
 //converts year chosen by user into database path
 convertToAppropriateYear(){
@@ -123,6 +129,71 @@ firebase.getValue('/outlines/'+ program +'/'+ this.year + '/' + this.semester + 
   return this.myTopic;
 
 
+
+}
+
+getTimetableFromFirebase(){
+
+  var program = ApplicationSettings.getString("userProgram");
+  this.convertToAppropriateYear();
+  this.convertToAppropriateSem();
+  //this.myTimetable = [];
+
+  //console.log(program + ' ' +this.year + ' ' +this.semester  );
+
+  firebase.getValue('/timetable/'+ program +'/'+ this.year + '/' + this.semester)
+  .then((result) => {
+    this.Monday=[];
+    this.Tuesday=[];
+    this.Wednesday=[];
+    this.Thursday = [];
+    this.Friday = [];
+  //  console.log(JSON.stringify(result.value));
+    if(result.value != null){
+    for (var key in result.value.Monday) {
+    //  this.myCourses.push({id: result.value[key].courseCode,name:result.value[key].courseName,level:result.value[key].courseDifficulty});
+    this.Monday.push({course_name:result.value.Monday[key].course_name, course_code:result.value.Monday[key].course_code, course_venue:result.value.Monday[key].course_venue, start_time:result.value.Monday[key].start_time,end_time:result.value.Monday[key].end_time,Time:result.value.Monday[key].timestamp});
+    }
+
+    for (var key in result.value.Tuesday) {
+    //  this.myCourses.push({id: result.value[key].courseCode,name:result.value[key].courseName,level:result.value[key].courseDifficulty});
+    this.Tuesday.push({course_name:result.value.Tuesday[key].course_name, course_code:result.value.Tuesday[key].course_code, course_venue:result.value.Tuesday[key].course_venue, start_time:result.value.Tuesday[key].start_time,end_time:result.value.Tuesday[key].end_time,Time:result.value.Tuesday[key].timestamp});
+    }
+
+    for (var key in result.value.Wednesday) {
+    //  this.myCourses.push({id: result.value[key].courseCode,name:result.value[key].courseName,level:result.value[key].courseDifficulty});
+    this.Wednesday.push({course_name:result.value.Wednesday[key].course_name, course_code:result.value.Wednesday[key].course_code, course_venue:result.value.Wednesday[key].course_venue, start_time:result.value.Wednesday[key].start_time,end_time:result.value.Wednesday[key].end_time, Time:result.value.Wednesday[key].timestamp});
+    }
+
+    for (var key in result.value.Thursday) {
+    //  this.myCourses.push({id: result.value[key].courseCode,name:result.value[key].courseName,level:result.value[key].courseDifficulty});
+    this.Thursday.push({course_name:result.value.Thursday[key].course_name, course_code:result.value.Thursday[key].course_code, course_venue:result.value.Thursday[key].course_venue, start_time:result.value.Thursday[key].start_time,end_time:result.value.Thursday[key].end_time, Time:result.value.Thursday[key].timestamp});
+    }
+
+    for (var key in result.value.Friday) {
+    //  this.myCourses.push({id: result.value[key].courseCode,name:result.value[key].courseName,level:result.value[key].courseDifficulty});
+    this.Friday.push({course_name:result.value.Friday[key].course_name, course_code:result.value.Friday[key].course_code, course_venue:result.value.Friday[key].course_venue, start_time:result.value.Friday[key].start_time,end_time:result.value.Friday[key].end_time,Time:result.value.Friday[key].timestamp});
+    }
+
+    this.Monday = this.Monday.sort(this.compare);
+    this.Tuesday = this.Tuesday.sort(this.compare);
+    this.Wednesday = this.Wednesday.sort(this.compare);
+    this.Thursday = this.Thursday.sort(this.compare);
+    this.Friday = this.Friday.sort(this.compare);
+
+    //console.log(JSON.stringify(result.value));
+  //  this.myTimetable = result.value;
+
+}
+
+  })
+  .catch(
+    (error) => {
+      console.log("Error: " + error);
+      alert("Error: " + error);
+    });
+
+ return [this.Monday,this.Tuesday,this.Wednesday,this.Thursday,this.Friday];
 
 }
 

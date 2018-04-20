@@ -26,13 +26,16 @@ import { TimeTableService } from "./classSchedule/timetableService.service";
 import { AuthRoute } from "./login/authRouteService.service";
 import { Outline } from "./courseDetail/courseDetailService.service";
 import { EventService  } from "./collegeEvents/eventService.service";
+import { ReccBooksService  } from "./courseDetail/reccommendedBooksService.service";
 
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
  import { NativeScriptFormsModule } from "nativescript-angular/forms";
 // NativeScriptUISideDrawerModule
 // Uncomment and add to NgModule imports  if you need to use the HTTP wrapper
-// import { NativeScriptHttpModule } from "nativescript-angular/http";
+//import { NativeScriptHttpModule } from "nativescript-angular/http";
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
     bootstrap: [
@@ -42,7 +45,10 @@ import { EventService  } from "./collegeEvents/eventService.service";
         NativeScriptModule,
         AppRoutingModule,
         NativeScriptFormsModule,
-        NativeScriptUISideDrawerModule
+        NativeScriptUISideDrawerModule,
+        HttpModule,
+        HttpClientModule
+
     ],
     declarations: [
         AppComponent,
@@ -66,7 +72,8 @@ import { EventService  } from "./collegeEvents/eventService.service";
       TimeTableService,
       AuthRoute,
       Outline,
-      EventService
+      EventService,
+      ReccBooksService
     ],
     schemas: [
         NO_ERRORS_SCHEMA

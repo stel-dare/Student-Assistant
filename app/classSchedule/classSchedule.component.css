@@ -6,3 +6,11 @@
 .font-weight-bold{
   font-size:25;
 }
+
+.parentStack StackLayout{
+  margin: 10;
+}
+
+.parentStack StackLayout Label{
+  font-size:  20;
+}

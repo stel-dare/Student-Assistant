@@ -4,6 +4,8 @@ import { platformNativeScriptDynamic } from "nativescript-angular/platform";
 import { AppModule } from "./app.module";
 //ApplicationSettings is for simple local storage
 import * as ApplicationSettings from "application-settings";
+import * as elementRegistryModule from 'nativescript-angular/element-registry';
+elementRegistryModule.registerElement("CardView", () => require("nativescript-cardview").CardView);
 
 const firebase = require("nativescript-plugin-firebase");
 

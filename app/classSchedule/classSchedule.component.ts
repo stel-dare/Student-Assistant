@@ -6,10 +6,12 @@ import { Router } from "@angular/router";
 import { RouterExtensions  } from "nativescript-angular/router";
 
 //Classes
-import { Courses,timetable } from "./timetableClass";
+//import { Courses,timetable } from "./timetableClass";
 
 //Services
-import { TimeTableService } from "./timetableService.service";
+//import { TimeTableService } from "./timetableService.service";
+import { CourseService } from "../courses/courseService.service";
+
 
 @Component({
     selector: "ns-classSchedule",
@@ -19,22 +21,91 @@ import { TimeTableService } from "./timetableService.service";
 })
 export class ClassScheduleComponent implements OnInit {
       //Variables
-    semesterTimetable : timetable[];
+    //semesterTimetable : timetable[];
 
-     tapped :boolean = false;
+//variables for accordion
+     tappedMonday :boolean = false;
+     tappedTuesday :boolean = false;
+     tappedWednesday :boolean = false;
+     tappedThursday :boolean = false;
+     tappedFriday :boolean = false;
 
-    constructor(private router: Router, private routerExtensions: RouterExtensions ,private timetableService : TimeTableService) { }
+
+     checkProfile:boolean;
+     getMonday=[];
+     getTuesday=[];
+     getWednesday=[];
+     getThursday=[];
+     getFriday=[];
+     getTimetable=[];
+
+    constructor(private router: Router, private routerExtensions: RouterExtensions ,private courseService: CourseService) { }
 
     ngOnInit(): void {
-      this.semesterTimetable = this.timetableService.mytimetable;
+      //this.semesterTimetable = this.timetableService.mytimetable;
+      this.checkProfile = this.courseService.checkIfProfileUpdated();
+      setInterval( () => {
+      this.getMonday = this.courseService.getTimetableFromFirebase()[0];
+      this.getTuesday =  this.courseService.getTimetableFromFirebase()[1];
+      this.getWednesday = this.courseService.getTimetableFromFirebase()[2];
+      this.getThursday = this.courseService.getTimetableFromFirebase()[3];
+      this.getFriday = this.courseService.getTimetableFromFirebase()[4];
+
+      console.log('this is thursday  ' + this.getWednesday.length );
+
+}, 6000);
+
+    //  this.getTimetable =
+
+
+
+    //  this.getFriday = this.getTimetable;
+    //  console.log(this.getFriday +' hey ');
 
 
     }
 
-    open(){
-      this.tapped = !this.tapped;
+    //accordion methods
 
-    }
+    openMonday(){
+      this.tappedMonday = !this.tappedMonday; //true
+      this.tappedTuesday = false;//false
+      this.tappedWednesday = false;//false
+      this.tappedThursday = false;//false
+      this.tappedFriday = false;//false
+      }
+
+      openTuesday(){
+        this.tappedMonday = false; //false
+        this.tappedTuesday = !this.tappedTuesday;//true
+        this.tappedWednesday = false;//false
+        this.tappedThursday = false;//false
+        this.tappedFriday = false;//false
+        }
+
+        openWednesday(){
+          this.tappedMonday = false; //true
+          this.tappedTuesday = false;//false
+          this.tappedWednesday = !this.tappedWednesday;//false
+          this.tappedThursday = false;//false
+          this.tappedFriday = false;//false
+          }
+
+          openThursday(){
+            this.tappedMonday = false; //true
+            this.tappedTuesday = false;//false
+            this.tappedWednesday = false;//false
+            this.tappedThursday = !this.tappedThursday;//false
+            this.tappedFriday = false;//false
+            }
+
+            openFriday(){
+              this.tappedMonday = false; //true
+              this.tappedTuesday = false;//false
+              this.tappedWednesday = false;//false
+              this.tappedThursday = false;//false
+              this.tappedFriday = !this.tappedFriday;//false
+              }
 
     //Nav
     goBackPage(){

@@ -16,6 +16,52 @@
 </StackLayout>
 </StackLayout>
 -->
+
+<StackLayout  class="parentStack" (tap)="openMonday()" [visibility]="checkProfile ? 'visible' : 'collapse'">
+<Label text= 'Monday' class="font-weight-bold m-b-20" textWrap="true"></Label>
+<StackLayout *ngFor = "let class of getMonday">
+  <Label *ngIf='tappedMonday'  [text] ="class.course_name + '  at  ' + class.start_time + '  to  ' + class.end_time" class="font-italic body" textWrap="true"></Label>
+  <Label *ngIf='tappedMonday'  [text]= "'Venue is ' + class.course_venue" class="font-italic" textWrap="true"></Label>
+</StackLayout>
+</StackLayout>
+
+<StackLayout  class="parentStack" (tap)="openTuesday()" [visibility]="checkProfile ? 'visible' : 'collapse'">
+<Label text= 'Tuesday' class="font-weight-bold m-b-20" textWrap="true"></Label>
+<StackLayout *ngFor = "let class of getTuesday">
+  
+  <Label *ngIf='tappedTuesday'  [text] ="class.course_name + '  at  ' + class.start_time + '  to  ' + class.end_time" class="font-italic body" textWrap="true"></Label>
+  <Label *ngIf='tappedTuesday'  [text]= "'Venue is ' + class.course_venue" class="font-italic" textWrap="true"></Label>
+</StackLayout>
+</StackLayout>
+
+<StackLayout  class="parentStack" (tap)="openWednesday()" [visibility]="checkProfile ? 'visible' : 'collapse'">
+<Label text= 'Wednesday' class="font-weight-bold m-b-20" textWrap="true"></Label>
+<StackLayout *ngFor = "let class of getWednesday">
+
+  <Label *ngIf='tappedWednesday'  [text] ="class.course_name + '  at  ' + class.start_time + '  to  ' + class.end_time" class="font-italic body" textWrap="true"></Label>
+  <Label *ngIf='tappedWednesday'  [text]= "'Venue is ' + class.course_venue" class="font-italic" textWrap="true"></Label>
+</StackLayout>
+</StackLayout>
+
+<StackLayout  class="parentStack" (tap)="openThursday()" [visibility]="checkProfile ? 'visible' : 'collapse'">
+<Label text= 'Thursday' class="font-weight-bold m-b-20" textWrap="true"></Label>
+<StackLayout *ngFor = "let class of getThursday">
+
+  <Label *ngIf='tappedThursday'  [text] ="class.course_name  + '  at  ' + class.start_time + '  to  ' + class.end_time" class="font-italic body" textWrap="true"></Label>
+  <Label *ngIf='tappedThursday'  [text]= "'Venue is ' + class.course_venue" class="font-italic" textWrap="true"></Label>
+</StackLayout>
+</StackLayout>
+
+<StackLayout  class="parentStack" (tap)="openFriday()" [visibility]="checkProfile ? 'visible' : 'collapse'">
+<Label text= 'Friday' class="font-weight-bold m-b-20" textWrap="true"></Label>
+<StackLayout *ngFor = "let class of getFriday">
+  <Label *ngIf='tappedFriday'  [text] ="class.course_name + '  at  ' + class.start_time + '  to  ' + class.end_time" class="font-italic body" textWrap="true"></Label>
+  <Label *ngIf='tappedFriday'  [text]= "'Venue is ' + class.course_venue" class="font-italic" textWrap="true"></Label>
+</StackLayout>
+</StackLayout>
+
+<Label text="Please Update Your Profile" class=" text-center  text-danger font-italic font-weight-bold"  [visibility]="checkProfile ? 'collapse' : 'visible'" textWrap="true"></Label>
+
 </StackLayout>
 
 </ScrollView>
