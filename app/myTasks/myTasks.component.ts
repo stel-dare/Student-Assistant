@@ -6,6 +6,7 @@ import { Color } from "color";
 //It seems to be faster
 import { RouterExtensions  } from "nativescript-angular/router";
 import * as ApplicationSettings from "application-settings";
+import * as Calendar from "nativescript-calendar";
 const firebase = require("nativescript-plugin-firebase");
 
 import { DatePicker } from "ui/date-picker";
@@ -34,6 +35,11 @@ export class MyTasksComponent implements OnInit {
 //VArriables for ngOnInit
 taskFire:any;
 finalDateFire:any;
+
+//variables for calender and local notifications
+
+endDate = new Date();
+
 
 
     constructor(private router:Router ,  private routerExtensions: RouterExtensions) { }
@@ -85,7 +91,7 @@ finalDateFire:any;
     onPickerLoaded(args) {
     let datePicker = <DatePicker>args.object;
 
-    datePicker.year = 2018;
+   datePicker.year = 2018;
     datePicker.month = 3;
     datePicker.day = 1;
     datePicker.minDate = new Date(2018, 2,1);
@@ -93,11 +99,16 @@ finalDateFire:any;
 }
 
 onDateChanged(args) {
+
+  //this varriable endDAte is used to add the end date of a task to the calender
+    this.endDate = args.value;
+
     console.log("Date changed" + args.toString());
     console.log("New value: " + args.value.toString());
     console.log("Old value: " + args.oldValue.toString());
     this.chosenDate=args.value.toString().slice(0,15);
     console.log(this.chosenDate);
+    console.log("start time date " + this.endDate );
 
 
 }
@@ -106,13 +117,20 @@ onDateChanged(args) {
 onTimePickerLoaded(args) {
     let timePicker = <TimePicker>args.object;
 
-    timePicker.hour = 9;
-    timePicker.minute = 25;
+   timePicker.hour = 9;
+   timePicker.minute = 25;
 
 }
 
 onTimeChanged(args) {
-    console.log(args.value);
+  let timePicker = <TimePicker>args.object;
+    console.log( timePicker.hour);
+//    this.endHour = timePicker.hour;
+//    this.endMin = timePicker.minute;
+    //console.log(args.value.minute);
+    //sets the endDAte with the appropriate time
+    this.endDate.setHours(timePicker.hour,timePicker.minute,0);
+    console.log("start time " + this.endDate );
     this.chosenTime=args.value.toString();
     this.chosenTime=args.value.toString().slice(16,24);
     console.log(this.chosenTime);
@@ -144,7 +162,40 @@ addTasks(){
         console.log("created key: " + result.key);
         this.TaskArray.push({task:this.taskName,color:new Color (this.colors[Math.floor(Math.random() * 19)]), date: this.finalDate ,key:result.key, timeStamp:firebase.ServerValue.TIMESTAMP});
         console.log(JSON.stringify(this.TaskArray));
-        this.taskName="";
+      //  var end = this.startDate.setHours(this.endHour);
+  //      console.log("end time " + end);
+        //adding task to user's calender
+        var options = {
+        title: this.taskName,
+        //startDate: new Date(new Date().getTime()),
+        //got confused with this for a while
+        //the start date is supposed to be the date the user chooses
+        //and the end date is how long the user should be reminded
+        startDate: this.endDate,
+        endDate: new Date(this.endDate.getTime() + (2*60*60*1000)),
+       //endDate: new Date(new Date().getTime() + (2*60*60*1000)),
+        reminders:{
+          first:30,
+          second:15
+
+        },
+        calendar:{
+          name:"My Tasks",
+          color:'#FF0000',
+          accountName:'Student Assistant'
+        }
+};
+
+        Calendar.createEvent(options).then(
+    function(createdId) {
+      console.log("Created Event with ID: " + createdId);
+    },
+    function(error) {
+      console.log("Error creating an Event: " + error);
+    }
+);
+
+       this.taskName="";
       }
   );
 
