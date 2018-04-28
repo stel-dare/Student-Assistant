@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 
-
+//import 'rxjs/add/operator/toPromise';
 
 const firebase = require("nativescript-plugin-firebase");
 

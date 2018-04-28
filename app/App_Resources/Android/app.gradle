@@ -5,12 +5,21 @@
 //	compile 'com.android.support:recyclerview-v7:+'
 //}
 
-android {  
-  defaultConfig {  
+android {
+  defaultConfig {
     generatedDensities = []
-    applicationId = "org.nativescript.StudentAssistant"  
-  }  
-  aaptOptions {  
-    additionalParameters "--no-version-vectors"  
-  }  
+    applicationId = "org.nativescript.StudentAssistant"
+  }
+  aaptOptions {
+    additionalParameters "--no-version-vectors"
+  }
+
+  defaultConfig {
+   multiDexEnabled true
+}
+
+}
+
+dependencies {
+	compile "com.android.support:multidex:1.0.0"
 } 

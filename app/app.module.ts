@@ -26,6 +26,7 @@ import { TimeTableService } from "./classSchedule/timetableService.service";
 import { AuthRoute } from "./login/authRouteService.service";
 import { Outline } from "./courseDetail/courseDetailService.service";
 import { EventService  } from "./collegeEvents/eventService.service";
+import { EventsToCalender  } from "./collegeEvents/eventsToCalender.service";
 import { ReccBooksService  } from "./courseDetail/reccommendedBooksService.service";
 
 
@@ -73,7 +74,8 @@ import { HttpClientModule } from '@angular/common/http';
       AuthRoute,
       Outline,
       EventService,
-      ReccBooksService
+      ReccBooksService,
+      EventsToCalender
     ],
     schemas: [
         NO_ERRORS_SCHEMA
