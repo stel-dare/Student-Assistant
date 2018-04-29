@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 
 //import 'rxjs/add/operator/toPromise';
 
-const firebase = require("nativescript-plugin-firebase");
+//const firebase = require("nativescript-plugin-firebase");
 
 
 
@@ -19,6 +19,7 @@ export class EventService {
 
 events = [];
 
+/*
 getEvents(){
   this.events=[];
   firebase.getValue('/events')
@@ -42,6 +43,6 @@ getEvents(){
     return this.events;
 
 }
-
+*/
 
 }
