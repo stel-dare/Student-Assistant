@@ -26,6 +26,12 @@ Wednesday = [];
 Thursday = [];
 Friday = [];
 
+
+//checking the state of the user
+checkState(){
+  var state = ApplicationSettings.getString("userProgram") +" " +ApplicationSettings.getString("userYear") +" "+  ApplicationSettings.getString("userSemester");
+  return state;
+}
 //converts year chosen by user into database path
 convertToAppropriateYear(){
 if(ApplicationSettings.getString("userYear")==='1') this.year="yearOne";
@@ -131,6 +137,7 @@ firebase.getValue('/outlines/'+ program +'/'+ this.year + '/' + this.semester + 
 
 
 }
+/*
 
 getTimetableFromFirebase(){
 
@@ -198,7 +205,19 @@ getTimetableFromFirebase(){
 }
 
 
+*/
 
+getTimetableFromFirebase(){
 
+  var program = ApplicationSettings.getString("userProgram");
+  this.convertToAppropriateYear();
+  this.convertToAppropriateSem();
+  //this.myTimetable = [];
+
+  //console.log(program + ' ' +this.year + ' ' +this.semester  );
+
+  return firebase.getValue('/timetable/'+ program +'/'+ this.year + '/' + this.semester);
+
+}
 
 }
