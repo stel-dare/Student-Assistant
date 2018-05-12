@@ -2,56 +2,62 @@
 <NavigationButton icon="res://ic_arrow_back_white_24dp" (tap)=goBackPage()></NavigationButton>
 </ActionBar>
 
-<!--TAb View-->
-<TabView selectedIndex="0" selectedColor="#1b3a4b" iosIconRenderingMode="alwaysOriginal" sdkExampleTitle sdkToggleNavButton class="tab-view">
-    <StackLayout *tabItem="{title: 'Trending'}" >
-
-      <ScrollView>
-
-<StackLayout>
-<!--COntent goes here
-      <Button text="Click here" class="m-7 btn btn-outline" (tap)="goForumChat()"></Button>
-      <Button text="Click here" class="m-7 btn btn-outline" (tap)="goForumChat()"></Button>
-      <Button text="Click here" class="m-7 btn btn-outline" (tap)="goForumChat()"></Button>
-      <Button text="Click here" class="m-7 btn btn-outline" (tap)="goForumChat()"></Button>
-      <Button text="Click here" class="m-7 btn btn-outline" (tap)="goForumChat()"></Button>
-      <Button text="Click here" class="m-7 btn btn-outline" (tap)="goForumChat()"></Button>
-      <Button text="Click here" class="m-7 btn btn-outline" (tap)="goForumChat()"></Button>
-      <Button text="Click here" class="m-7 btn btn-outline" (tap)="goForumChat()"></Button>
-      <Button text="Click here" class="m-7 btn btn-outline" (tap)="goForumChat()"></Button>
-      <Button text="Click here" class="m-7 btn btn-outline" (tap)="goForumChat()"></Button>
-    -->
 
 
 
+  <!--MAin container -->
+  <StackLayout [visibility]="askQuestion ? 'collapse' : 'visible'">
 
-</StackLayout>
+    <!--Messages container-->
+    <ScrollView height="90%" verticalOffset="0">
+    <StackLayout>
 
-</ScrollView>
-
+        <CardView class="cardStyle" margin="10" elevation="15" radius="1" *ngFor="let p of finalPost">
+          <GridLayout rows="*, *, *,*" columns = "*,30,*,30" >
+        <Label class="text-center font-weight-bold" [text]="p.tag | uppercase" colSpan="4" row="0"  textWrap="true" col="0" fontSize="20" backgroundColor="#007acb" color="#ffffff" borderRadius="15"></Label>
+        <Label class="font-italic p-x-8 p-y-10" [text]="p.message" colSpan="4" row="1" textWrap="true" col="0" fontSize="17"></Label>
+        <Label class="font-italic p-x-8 p-y-10" [text]="p.sender" colSpan="2" row="2" textWrap="true" col="0" fontSize="17" color="#0031ca"></Label>
+        <Label class="font-italic p-x-8 p-y-10" [text]="p.Time" colSpan="2" row="2" textWrap="true" col="2" fontSize="17" color="#3d5afe"></Label>
+        <Label class="font-italic p-x-8 p-y-10" text="Likes "  row="3" textWrap="true" col="0" fontSize="17"></Label>
+        <Label class="font-italic p-x-8 p-y-10" [text]="p.likes"  row="3" textWrap="true" col="1" fontSize="17"></Label>
+        <Label class="font-italic p-x-8 p-y-10" text="Replies "  row="3" textWrap="true" col="2" fontSize="17"></Label>
+        <Label class="font-italic p-x-8 p-y-10" [text]="p.replies"  row="3" textWrap="true" col="3" fontSize="17"></Label>
+      </GridLayout>
+        </CardView>
     </StackLayout>
 
+  </ScrollView>
+-
 
 
-
-    <StackLayout *tabItem="{title: 'All Categories'}">
-
-      <ScrollView>
-
-<StackLayout>
-<!--COntent goes here-->
-      <Button text="Click here" class="m-7 btn btn-outline" (tap)="goForumChat()"></Button>
-      <Button text="Click here" class="m-7 btn btn-outline" (tap)="goForumChat()"></Button>
-      <Button text="Click here" class="m-7 btn btn-outline" (tap)="goForumChat()"></Button>
-      <Button text="Click here" class="m-7 btn btn-outline" (tap)="goForumChat()"></Button>
-      <Button text="Click here" class="m-7 btn btn-outline" (tap)="goForumChat()"></Button>
-      <Button text="Click here" class="m-7 btn btn-outline" (tap)="goForumChat()"></Button>
-      <Button text="Click here" class="m-7 btn btn-outline" (tap)="goForumChat()"></Button>
-      <Button text="Click here" class="m-7 btn btn-outline" (tap)="goForumChat()"></Button>
-      <Button text="Click here" class="m-7 btn btn-outline" (tap)="goForumChat()"></Button>
-</StackLayout>
-
-</ScrollView>
-
+    <!--Asking a question container-->
+    <StackLayout height="10%">
+<Button text = "Ask a question" class="btn btn-primary" (tap) = "toggleQuestionForm()"></Button>
     </StackLayout>
-</TabView>
+
+  </StackLayout>
+
+  <!--Question Form-->
+  <StackLayout [visibility]="askQuestion ? 'visible' : 'collapse'"  class="m-20">
+    <ScrollView>
+      <StackLayout>
+    <Label text=" Rules For Asking Quuestions" class="label font-weight-bold" fontSize="23" textWrap="true"></Label>
+    <Label text="1. Check forum to see if your question has already been asked and answered." class="label font-italic" fontSize="18" textWrap="true"></Label>
+    <Label text="2. Let your question be straight to the point." class="label font-italic" fontSize="18" textWrap="true"></Label>
+    <Label text="3. Do not use offensive words." class="label font-italic" fontSize="18" textWrap="true"></Label>
+    <Label text= "4. Always add a tag to your questions." class="label font-italic" fontSize="18" textWrap="true"></Label>
+<StackLayout class="m-y-20">
+    <Label text=" Ask Question :" class="label font-weight-bold" fontSize="20"></Label>
+<TextView text="" hint="Question"  editable="true"
+    class="input input-border" fontSize="18" [(ngModel)]="question"></TextView>
+
+    <Label [text]="tag" class="label font-weight-normal" fontSize="18"></Label>
+
+    <Button text = "Add Tag" class="btn btn-outline btn-rounded-lg" (tap)="showModal()"></Button>
+
+
+    <Button text = "POST" class="btn btn-primary" (tap)="postQuestion()"></Button>
+  </StackLayout>
+</StackLayout>
+</ScrollView>
+  </StackLayout>

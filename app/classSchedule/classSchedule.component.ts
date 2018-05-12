@@ -83,10 +83,7 @@ docId: string = "previousState";
         console.log("matching : " + this.matching);
       }
 
-        //console.log("userState : " + this.userState);
-        //console.log("the document " + JSON.stringify(doc) );
-        //console.log("what is given to tsArray " + doc.eventTimeStamp);
-        //console.log("this is what is in database " + typeof(this.tsArray));
+
       }
 
 
@@ -135,12 +132,11 @@ docId: string = "previousState";
         this.addToCalendar();
       }
 
-      else if (!this.matching){
+       if (!this.matching){
         this.deleteFromCal();
         this.addToCalendar();
-        console.log("deleted and added");
-
-      }
+        console.log("deleted ");
+    }
 
 
         console.log("Mon "+JSON.stringify(this.Tuesday));
@@ -155,29 +151,6 @@ docId: string = "previousState";
   );
 
   }
-/*
-      setInterval( () => {
-      this.getMonday = this.courseService.getTimetableFromFirebase()[0];
-      this.getTuesday =  this.courseService.getTimetableFromFirebase()[1];
-      this.getWednesday = this.courseService.getTimetableFromFirebase()[2];
-      this.getThursday = this.courseService.getTimetableFromFirebase()[3];
-      this.getFriday = this.courseService.getTimetableFromFirebase()[4];
-
-      console.log('this is thursday  ' + this.getWednesday.length );
-
-}, 6000);
-*/
-
-    //  this.getTimetable =
-
-
-
-    //  this.getFriday = this.getTimetable;
-    //  console.log(this.getFriday +' hey ');
-
-
-
-
     //accordion methods
 
     openMonday(){

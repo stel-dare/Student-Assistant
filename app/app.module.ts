@@ -19,6 +19,7 @@ import { ForumHomeComponent } from "./forum/forumHome.component";
 import { ForumChatComponent } from "./forum/forumChat.component";
 import { ProfileComponent } from "./profile/profile.component";
 import { AboutUsComponent } from "./AboutUs/AboutUs.component";
+import { ModalComponent } from "./forum/tag.modal";
 
 //Services
 import { CourseService } from "./courses/courseService.service";
@@ -28,6 +29,7 @@ import { Outline } from "./courseDetail/courseDetailService.service";
 import { EventService  } from "./collegeEvents/eventService.service";
 import { EventsToCalender  } from "./collegeEvents/eventsToCalender.service";
 import { ReccBooksService  } from "./courseDetail/reccommendedBooksService.service";
+import { ModalDialogService } from "nativescript-angular/modal-dialog";
 
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
@@ -65,9 +67,11 @@ import { HttpClientModule } from '@angular/common/http';
         ForumHomeComponent,
         ForumChatComponent,
         ProfileComponent,
-        AboutUsComponent
+        AboutUsComponent,
+        ModalComponent
 
     ],
+    entryComponents: [ModalComponent],
     providers: [
       CourseService,
       TimeTableService,
@@ -75,7 +79,8 @@ import { HttpClientModule } from '@angular/common/http';
       Outline,
       EventService,
       ReccBooksService,
-      EventsToCalender
+      EventsToCalender,
+      ModalDialogService
     ],
     schemas: [
         NO_ERRORS_SCHEMA
