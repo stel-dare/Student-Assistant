@@ -1,9 +1,42 @@
-<ActionBar title="Forum  - Course Name" class="action-bar" >
+<ActionBar title="Comments" class="action-bar" >
 <NavigationButton icon="res://ic_arrow_back_white_24dp" (tap)="goBackPage()"></NavigationButton>
 </ActionBar>
 
-<ScrollView>
-  <StackLayout>
-    <!--content goes here-->
-  </StackLayout>
+<StackLayout>
+
+<ScrollView height="90%" verticalOffset="0">
+<StackLayout>
+  <!-- Show Message -->
+      <GridLayout rows="*, *" columns = "*,*" >
+    <Label class="font-italic p-x-8 p-y-10" [text]="message" colSpan="2" row="0" textWrap="true" col="0" fontSize="17"></Label>
+    <Label class="font-italic p-x-8 p-y-10" [text]="sender"  row="1" textWrap="true" col="0" fontSize="17" color="#0031ca"></Label>
+    <Label class="font-italic p-x-8 p-y-10" [text]="Time | amTimeAgo" row="1" textWrap="true" col="1" fontSize="17" color="#3d5afe"></Label>
+  </GridLayout>
+  <StackLayout class="hr-light m-10"></StackLayout>
+<!-- Show comment -->
+<GridLayout rows="*, *,*" columns = "*,*"  *ngFor="let comment of finalComments">
+<Label class="font-italic p-x-8 p-y-10" [text]="comment.comment" colSpan="2" row="0" textWrap="true" col="0" fontSize="17"></Label>
+<Label class="font-italic p-x-8 p-y-10" [text]="comment.sender"  row="1" textWrap="true" col="0" fontSize="17" color="#0031ca"></Label>
+<Label class="font-italic p-x-8 p-y-10" [text]="comment.Time | amTimeAgo" row="1" textWrap="true" col="1" fontSize="17" color="#3d5afe"></Label>
+<StackLayout class="hr-light m-10" row="2" colSpan="2" col="0"></StackLayout>
+</GridLayout>
+
+</StackLayout>
 </ScrollView>
+
+
+
+
+
+<!--Asking a question container-->
+<ScrollView height="10%">
+<GridLayout rows="*" columns = "*,auto" >
+  <TextView text="" hint="Comment"  editable="true"
+      class="input input-border" fontSize="19" [(ngModel)]="comment" row="0" col="0"></TextView>
+
+  <Button text="&#xf1d8;" class="btn btn-primary fa" row="0" col="1" (tap)="postComment()"></Button>
+
+</GridLayout>
+</ScrollView>
+
+</StackLayout>

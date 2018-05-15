@@ -30,7 +30,7 @@ const routes: Routes = [
    { path: "collegeEvents", component: CollegeEventsComponent},
    { path: "myTasks", component: MyTasksComponent},
    { path: "forumHome", component: ForumHomeComponent},
-   { path: "forumChat", component: ForumChatComponent},
+   { path: "forumChat/:post", component: ForumChatComponent},
    { path: "profile", component: ProfileComponent},
    { path: "about-us", component: AboutUsComponent}
 

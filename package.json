@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~5.2.0",
     "@angular/platform-browser-dynamic": "~5.2.0",
     "@angular/router": "~5.2.0",
+    "angular2-moment": "^1.9.0",
     "font-awesome": "^4.7.0",
     "nativescript-angular": "~5.2.0",
     "nativescript-calendar": "^2.0.0",

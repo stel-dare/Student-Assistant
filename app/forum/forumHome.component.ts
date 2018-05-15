@@ -1,6 +1,6 @@
 import { Component, OnInit , ViewContainerRef,NgZone } from "@angular/core";
 
-import { Router } from "@angular/router";
+import { Router ,  NavigationExtras} from "@angular/router";
 //This routerExtensions is for navigating to a previous page.
 //It seems to be faster
 import { RouterExtensions  } from "nativescript-angular/router";
@@ -33,7 +33,7 @@ export class ForumHomeComponent implements OnInit {
           .then((result) => {
           //  console.log(JSON.stringify(result)
           for(var key in result.value){
-            this.posts.push({message:result.value[key].Message,tag:result.value[key].Tag,likes:result.value[key].Likes,replies:result.value[key].Replies,Time:result.value[key].TimeStamp,sender:result.value[key].Sender});
+            this.posts.push({message:result.value[key].Message,tag:result.value[key].Tag,likes:result.value[key].Likes,replies:result.value[key].Replies,Time:result.value[key].TimeStamp,sender:result.value[key].Sender,key:key});
           }
           this.finalPost=this.posts.sort(this.compare);
           this.posts=[];
@@ -46,7 +46,7 @@ export class ForumHomeComponent implements OnInit {
     firebase.addValueEventListener( (result) => {
       this.zone.run( () => {
       for(var key in result.value){
-        this.posts.push({message:result.value[key].Message,tag:result.value[key].Tag,likes:result.value[key].Likes,replies:result.value[key].Replies,Time:result.value[key].TimeStamp,sender:result.value[key].Sender});
+        this.posts.push({message:result.value[key].Message,tag:result.value[key].Tag,likes:result.value[key].Likes,replies:result.value[key].Replies,Time:result.value[key].TimeStamp,sender:result.value[key].Sender,key:key});
       }
       console.log(NgZone.isInAngularZone());
       this.finalPost = this.posts.sort(this.compare);
@@ -117,6 +117,21 @@ else alert("please add a tag");
    if (a.Time > b.Time)
    return 1;
    return 0;
+   }
+
+   likePost(post:any){
+    post.likes = post.likes +1;
+    firebase.update(
+    '/forum/' + this.courseService.checkState() + '/messages/'+post.key,
+    {Likes: post.likes}
+);
+   }
+
+   commentPost(p:any){
+    //post.replies = post.replies +1;
+    var post = JSON.stringify(p);
+    this.router.navigate(["/forumChat",post]);
+  //  this.router.navigate(["/courseDetail", this.nameCourse,this.courseCode]);
    }
 
 }

@@ -3,6 +3,7 @@ import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { AppRoutingModule } from "./app.routing";
 import { AppComponent } from "./app.component";
 import { NativeScriptUISideDrawerModule } from "nativescript-telerik-ui/sidedrawer/angular";
+import { MomentModule } from 'angular2-moment';
 
 
 //Components
@@ -50,7 +51,8 @@ import { HttpClientModule } from '@angular/common/http';
         NativeScriptFormsModule,
         NativeScriptUISideDrawerModule,
         HttpModule,
-        HttpClientModule
+        HttpClientModule,
+        MomentModule
 
     ],
     declarations: [

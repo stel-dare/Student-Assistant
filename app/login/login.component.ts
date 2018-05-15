@@ -126,7 +126,7 @@ isLoggingIn = true;
     googleLogin(){
 
     this.isProcessing = true;
-
+/*
       firebase.login({
   type: firebase.LoginType.GOOGLE,
 
@@ -153,14 +153,28 @@ isLoggingIn = true;
       okButtonText: 'OK'
     });
 
-  */
+
   }
 );
+*/
+firebase.login({
+  type: firebase.LoginType.GOOGLE,
+  // Optional
+}).then(
+    (success)=> {
+      JSON.stringify(success);
+      console.log(success);
+    //  ApplicationSettings.setNumber("authenticated",23);
+      //this.IsProcessing = false;
+      //this.routerExtensions.navigate(["/tabView"], { clearHistory: true });
 
-//if(ApplicationSettings.getNumber("authenticated")===23){
+}
 
+).catch(     (errorMessage) => {
+      console.log(errorMessage);
+    //  this.IsProcessing = false;
 
-
+});
     }
 
 
