@@ -1,6 +1,7 @@
-import { Component, OnInit , ViewContainerRef,NgZone } from "@angular/core";
+import { Component, OnInit , ViewContainerRef,NgZone,ElementRef, ViewChild } from "@angular/core";
 
 import { Router ,  NavigationExtras} from "@angular/router";
+import { ScrollView } from "ui/scroll-view";
 //This routerExtensions is for navigating to a previous page.
 //It seems to be faster
 import { RouterExtensions  } from "nativescript-angular/router";
@@ -12,6 +13,7 @@ import { CourseService } from "../courses/courseService.service";
 const firebase = require("nativescript-plugin-firebase");
 import * as ApplicationSettings from "application-settings";
 
+
 @Component({
     selector: "ns-forumHome",
     //changeDetection: ChangeDetectionStrategy.OnPush,
@@ -21,6 +23,7 @@ import * as ApplicationSettings from "application-settings";
 })
 export class ForumHomeComponent implements OnInit {
     //toggles message board and question form
+   @ViewChild("scrollview") scrollToBottom:  ElementRef;
     askQuestion = false;
     tag = "";
     question = "";
@@ -43,6 +46,8 @@ export class ForumHomeComponent implements OnInit {
 
 //listen for changes
     ngOnInit(): void {
+     //scroller:ScrollView = this.scrollToBottom.nativeElement;
+
     firebase.addValueEventListener( (result) => {
       this.zone.run( () => {
       for(var key in result.value){
@@ -52,6 +57,11 @@ export class ForumHomeComponent implements OnInit {
       this.finalPost = this.posts.sort(this.compare);
       console.log(JSON.parse(JSON.stringify(this.finalPost)) + "\n"+"\n");
       this.posts=[];
+      let scroller:ScrollView = this.scrollToBottom.nativeElement;
+       console.log("Height: " + scroller.scrollableHeight);
+       setTimeout( () => {
+         scroller.scrollToVerticalOffset(scroller.scrollableHeight, true);
+       }, 1);
 
 
     });  }, '/forum/' + this.courseService.checkState() + '/messages');
@@ -103,6 +113,11 @@ export class ForumHomeComponent implements OnInit {
       this.askQuestion = !this.askQuestion;
       this.tag = "";
       this.question = "";
+      let scroller:ScrollView = this.scrollToBottom.nativeElement;
+       console.log("Height: " + scroller.scrollableHeight);
+       setTimeout( () => {
+         scroller.scrollToVerticalOffset(scroller.scrollableHeight, true);
+       }, 1);
 
     }
 );

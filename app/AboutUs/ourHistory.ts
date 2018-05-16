@@ -1,12 +1,14 @@
 
 export class EkuaResume{
   schoolHistory(){
-    console.log('Akua school history');
+    //console.log('Akua school history');
+    var history = "My name is Akua. I am one of the only two ladies in computer engineering year 4 class of 2018";
   }
 
   familyHistory(){
 
-    console.log('Akua family history');
+    //console.log('Akua family history');
+    var family ="Am the last born of my parents. I have a twin.";
 
   }
 
@@ -19,7 +21,8 @@ export class EkuaResume{
 export class StellaResume{
 
   schoolHistory(){
-    console.log('stella school history');
+    //console.log('stella school history');
+    var history = "My name is Stella. I am one of the only two ladies in computer engineering year 4 class of 2018";
   }
 
   familyHistory(){

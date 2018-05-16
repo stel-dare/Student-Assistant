@@ -110,7 +110,7 @@ return 1;
 return 0;
 }
 
-
+/*
 
 getOutlineFromFirebase(courseID){
 var program = ApplicationSettings.getString("userProgram");
@@ -137,7 +137,7 @@ firebase.getValue('/outlines/'+ program +'/'+ this.year + '/' + this.semester + 
 
 
 }
-/*
+
 
 getTimetableFromFirebase(){
 
@@ -218,6 +218,13 @@ getTimetableFromFirebase(){
 
   return firebase.getValue('/timetable/'+ program +'/'+ this.year + '/' + this.semester);
 
+}
+
+getOutlineFromFirebase(courseID){
+  var program = ApplicationSettings.getString("userProgram");
+  this.convertToAppropriateYear();
+  this.convertToAppropriateSem();
+  return firebase.getValue('/outlines/'+ program +'/'+ this.year + '/' + this.semester + '/' + courseID );
 }
 
 }

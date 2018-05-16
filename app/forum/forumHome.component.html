@@ -9,7 +9,7 @@
   <StackLayout [visibility]="askQuestion ? 'collapse' : 'visible'">
 
     <!--Messages container-->
-    <ScrollView height="90%" verticalOffset="0">
+    <ScrollView height="90%" verticalOffset="0" #scrollview>
     <StackLayout>
 
         <CardView class="cardStyle" margin="10" elevation="15" radius="1" *ngFor="let p of finalPost">

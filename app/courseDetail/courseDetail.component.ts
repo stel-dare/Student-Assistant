@@ -8,6 +8,8 @@ import { RouterExtensions  } from "nativescript-angular/router";
 import { CourseService } from "../courses/courseService.service";
 import { ReccBooksService  } from "./reccommendedBooksService.service";
 
+import * as utils from "utils/utils";
+
 //import * as elementRegistryModule from 'nativescript-angular/element-registry';
 //elementRegistryModule.registerElement("CardView", () => require("nativescript-cardview").CardView);
 
@@ -24,6 +26,7 @@ export class CourseDetailComponent implements OnInit {
         courseNameReceived : string;
         courseIdReceived:string;
         outline = [];
+
       //  finalOutline = [];
       //  received = 'hello there';
         //book:any;
@@ -52,7 +55,15 @@ export class CourseDetailComponent implements OnInit {
 
     ngOnInit(): void {
 
-      this.outline = this.CourseService.getOutlineFromFirebase(this.courseIdReceived);
+    //  this.outline = this.CourseService.getOutlineFromFirebase(this.courseIdReceived);
+    this.CourseService.getOutlineFromFirebase(this.courseIdReceived).then((result) =>{
+    var myOutline =[];
+    for (var key in result.value) {
+      myOutline.push({topic:result.value[key].topic, Time:result.value[key].timeStamp});
+  }
+    this.outline = myOutline.sort(this.CourseService.compare);
+
+  });
 
 //for fetching recommended books from server
 //when promise is returned the json is looped and the needed infomation is fetched and pushed
@@ -96,6 +107,9 @@ this.displayBooks = this.booksArrary;
     goBackPage(){
     this.routerExtensions.backToPreviousPage();
 
+    }
+    openU(link){
+      utils.openUrl(link);
     }
 
 }

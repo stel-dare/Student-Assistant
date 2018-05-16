@@ -6,26 +6,28 @@
 
 <TabView selectedIndex="0" selectedColor="#1b3a4b" iosIconRenderingMode="alwaysOriginal" sdkExampleTitle sdkToggleNavButton class="tab-view">
     <StackLayout *tabItem="{title: 'Course Outline'}" >
-      <ScrollView>
+
 <StackLayout>
 
 <!--Tab Contents go here-->
 
+<!--
 <StackLayout  *ngFor="let topic of outline" orientation="horizontal" class="course">
-
     <Label [text] = "topic.topic" class="topic body" textWrap="true"></Label>
-
-
-    <!--trying to pass the course -->
   </StackLayout>
-
-
-
+-->
+<ListView [items]="outline"  class="list-group">
+    <ng-template let-topic="item" let-i="index" let-odd="odd" let-even="even">
+        <GridLayout class="list-group-item">
+            <Label [text]="topic.topic" textWrap="true" textWrap="true"></Label>
+        </GridLayout>
+    </ng-template>
+</ListView>
 
 </StackLayout>
 
 
-</ScrollView>
+
     </StackLayout>
 <!--First TAb ends here-->
 
@@ -35,33 +37,19 @@
       <ScrollView>
 <StackLayout>
 
-<!--Tab Contents go here -->
 
-  <!--
-  <GridLayout rows="*, *, *,*" columns = "30,*,30,*" >
-
-      <Label class="text-center font-weight-bold" [text]="event.eventName | uppercase" colSpan="4" row="0"  textWrap="true" col="0" fontSize="20"></Label>
-      <Label class="font-italic" [text]="event.eventAbout" colSpan="4" row="1" textWrap="true" col="0" fontSize="17"></Label>
-      <Label row="2" col="0" class="fa " text="&#xf133;" fontSize="14"></Label>
-      <Label class="text-left " [text]="event.eventDate"  row="2" textWrap="true" col="1" fontSize="14"></Label>
-      <Label row="2" col="2" class="fa" text="&#xf017;" fontSize="14" ></Label>
-      <Label class="text-left " [text]="event.eventTime"  row="2" textWrap="true" col="3" fontSize="14"></Label>
-      <Label row="3" col="0" class="fa " text="&#xf041;" fontSize="16"></Label>
-      <Label class="text-left" [text]="event.eventVenue" colSpan="3" row="3" textWrap="true"col="1" fontSize="16" ></Label>
-  </GridLayout>
--->
 <ActivityIndicator row="1"  [busy]="Loading"  width="50" height="50" class="activity-indicator" [visibility]="Loading ? 'visible' : 'collapse'"></ActivityIndicator>
-<CardView class="cardStyle" margin="10" elevation="40" radius="1"  backgroundColor="" *ngFor="let book of displayBooks">
+<CardView class="cardStyle" margin="10" elevation="30" radius="1"  backgroundColor="" *ngFor="let book of displayBooks">
 <StackLayout>
   <Image [src]="book.imageLink" width="190" class="img-rounded m-10"></Image>
-  <Label class="font-weight-bold p-8" text ='Title : ' textWrap="true" fontSize="20" ></Label>
-  <Label class="font-italic p-8" [text] ='book.title' textWrap="true" fontSize="15" ></Label>
-  <Label class="font-weight-bold p-8" text ='Author : ' textWrap="true" fontSize="20" ></Label>
-  <Label class="font-italic p-8" [text] ='book.author' textWrap="true" fontSize="15" ></Label>
-  <Label class="font-weight-bold p-8" text ='Description : ' textWrap="true" fontSize="20" ></Label>
-  <Label class="font-italic p-8" [text] ='book.bookDescription' textWrap="true" fontSize="15" ></Label>
-  <Label class="font-weight-bold p-8" text ='Preview Link : ' textWrap="true" fontSize="20" ></Label>
-  <Label class="font-italic p-8" [text] ='book.previewLink' textWrap="true" fontSize="15" ></Label>
+  <Label class="font-weight-bold p-8 label" text ='Title : ' textWrap="true" fontSize="20"  ></Label>
+  <Label class="font-italic p-8 label" [text] ='book.title' textWrap="true" fontSize="18"  ></Label>
+  <Label class="font-weight-bold p-8 label" text ='Author : ' textWrap="true" fontSize="20"  ></Label>
+  <Label class="font-italic p-8 label" [text] ='book.author' textWrap="true" fontSize="18"  ></Label>
+  <Label class="font-weight-bold p-8 label" text ='Description : ' textWrap="true" fontSize="20" ></Label>
+  <Label  [text] ='book.bookDescription' class="font-weight-bold p-8 label"  textWrap="true" fontSize="18"></Label>
+  <Label class="font-weight-bold p-8 label" text ='Preview Link : ' textWrap="true" fontSize="20"  ></Label>
+  <Label class="font-italic p-8 label" [text] ='book.previewLink' textWrap="true" fontSize="15" (tap) ="openU(book.previewLink)" color="#2463f3"></Label>
 </StackLayout>
 
 </CardView>

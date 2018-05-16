@@ -126,7 +126,7 @@ isLoggingIn = true;
     googleLogin(){
 
     this.isProcessing = true;
-/*
+
       firebase.login({
   type: firebase.LoginType.GOOGLE,
 
@@ -136,45 +136,15 @@ isLoggingIn = true;
       console.log(success);
       this.routerExtensions.navigate(["/home"], { clearHistory: true });
       ApplicationSettings.setNumber("authenticated",23);
-      //this.IsProcessing = false;
-      //this.routerExtensions.navigate(["/home"], { clearHistory: true });
-
 },
      (errorMessage) => {
       console.log(errorMessage);
+      alert(errorMessage);
       this.isProcessing = false;
-      //this.IsProcessing = false;
-    //  alert("Error");
-
-/* //producing runtime errors
-    dialogs.alert({
-      title: 'Login Unsuccessful',
-      message: errorMessage,
-      okButtonText: 'OK'
-    });
-
-
   }
 );
-*/
-firebase.login({
-  type: firebase.LoginType.GOOGLE,
-  // Optional
-}).then(
-    (success)=> {
-      JSON.stringify(success);
-      console.log(success);
-    //  ApplicationSettings.setNumber("authenticated",23);
-      //this.IsProcessing = false;
-      //this.routerExtensions.navigate(["/tabView"], { clearHistory: true });
 
-}
 
-).catch(     (errorMessage) => {
-      console.log(errorMessage);
-    //  this.IsProcessing = false;
-
-});
     }
 
 

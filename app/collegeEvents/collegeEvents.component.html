@@ -14,7 +14,7 @@
     </StackLayout>
     -->
 
-    <CardView class="cardStyle" margin="10" elevation="40" radius="1" *ngFor="let event of events" backgroundColor="#80CBC4">
+    <CardView class="cardStyle" margin="10" elevation="30" radius="1" *ngFor="let event of events" backgroundColor="#80CBC4">
       <GridLayout rows="*, *, *,*" columns = "30,*,30,*" >
 
           <Label class="text-center font-weight-bold" [text]="event.eventName | uppercase" colSpan="4" row="0"  textWrap="true" col="0" fontSize="20"></Label>
