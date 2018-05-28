@@ -7,3 +7,4 @@ if (!global["__snapshot"]) {
     require("ui/frame");
     require("ui/frame/activity");
 }
+require("./application.android.js");

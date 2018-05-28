@@ -16,6 +16,14 @@ aboutEkua=new EkuaResume();
  aboutStel = new StellaResume();
  aboutProject = new AboutThisProject();
  aboutUS = new aboutUsFacade(this.aboutEkua,this.aboutStel,this.aboutProject);
+ akua = [];
+ stel = [];
+ project = "";
+ experiences = [];
+ showAkua = false;
+ showStel = false;
+ showProject = false;
+ showExperiences = false;
 
 
 
@@ -33,8 +41,38 @@ aboutEkua=new EkuaResume();
 
     }
 
-    seeUs(){
+    aboutAkua(){
    //this.aboutUS.seeAboutUs();
-   this.aboutUS.projectDifficulty();
+  this.akua = this.aboutUS.seeAboutAkua();
+  this.showAkua = !this.showAkua;
+  this.showStel = false;
+  this.showProject = false;
+  this.showExperiences = false;
+    }
+
+    aboutStella(){
+    this.stel =  this.aboutUS.seeAboutStella();
+    this.showAkua = false;
+    this.showStel = !this.showStel;
+    this.showProject = false;
+    this.showExperiences = false;
+    }
+
+    Project(){
+    this.project =  this.aboutUS.aboutProject();
+    this.showAkua = false;
+    this.showStel = false;
+    this.showProject = !this.showProject;
+    this.showExperiences = false;
+    }
+
+    projectDifficulty(){
+      //console.log("received");
+    this.experiences =  this.aboutUS.projectDifficulty();
+    this.showAkua = false;
+    this.showStel = false;
+    this.showProject = false;
+    this.showExperiences = !this.showExperiences;
+    //console.log(this.experiences);
     }
 }

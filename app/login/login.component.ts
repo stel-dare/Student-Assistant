@@ -32,6 +32,7 @@ confirmPassword:string="";
 isProcessing= false;
 @ViewChild("container") container : ElementRef;
 isLoggingIn = true;
+testMessage:string;
 
 
     constructor(private page: Page , private routerExtensions: RouterExtensions) { }
@@ -119,10 +120,11 @@ isLoggingIn = true;
       backgroundColor: this.isLoggingIn ? new Color("#c0cae5") : new Color("#58e7dc"),
       duration: 300
     });
+    return this.isLoggingIn;
     }
 
 
-//555555555 GOOGLE LOGIN
+
     googleLogin(){
 
     this.isProcessing = true;
@@ -151,5 +153,7 @@ isLoggingIn = true;
 
     logOut(){
       firebase.logout();
+      this.testMessage="loggedOut";
+      return this.testMessage;
     }
 }

@@ -7,6 +7,37 @@
 <!--
     <Button (tap)="seeUs()" text="about us"></Button>
 -->
+<StackLayout  (tap)="aboutAkua()" backgroundColor="#aab4b4" class="m-y-10 m-x-20" borderRadius="15">
+<Label text= 'About Akua' class="font-weight-bold m-b-20 text-center p-x-10" textWrap="true"></Label>
+<StackLayout>
+<Label *ngIf="showAkua" [text]="akua[0]"  class="label p-x-8" textWrap="true"></Label>
+<Label *ngIf="showAkua" [text]="akua[1]"  class="label p-x-8" textWrap="true"></Label>
+</StackLayout>
+</StackLayout>
+
+<StackLayout  (tap)="aboutStella()" backgroundColor="#aab4b4" class="m-y-10 m-x-30 " borderRadius="15">
+<Label text= 'About Stella' class="font-weight-bold m-b-20 text-center p-x-10" textWrap="true"></Label>
+<StackLayout>
+  <Label *ngIf="showStel" [text]="stel[0]"  class="label p-x-8" textWrap="true"></Label>
+  <Label *ngIf="showStel" [text]="stel[1]"  class="label p-x-8" textWrap="true"></Label>
+</StackLayout>
+</StackLayout>
+
+<StackLayout  (tap)="Project()" backgroundColor="#aab4b4" class="m-y-10 m-x-20" borderRadius="15">
+<Label text= 'Our Project' class="font-weight-bold m-b-20 text-center p-x-10" textWrap="true"></Label>
+<StackLayout>
+  <Label *ngIf="showProject" [text]="project"  class="label p-x-8" textWrap="true"></Label>
+
+</StackLayout>
+</StackLayout>
+
+<StackLayout  (tap)="projectDifficulty()" backgroundColor="#aab4b4" class="m-y-10 m-x-20" borderRadius="15">
+<Label text= 'Our Experiences' class="font-weight-bold m-b-20 text-center p-x-10" textWrap="true"></Label>
+<StackLayout>
+  <Label *ngIf="showExperiences" [text]="experiences[0]"  class="label p-x-8" textWrap="true"></Label>
+  <Label *ngIf="showExperiences" [text]="experiences[1]"  class="label p-x-8" textWrap="true"></Label>
+</StackLayout>
+</StackLayout>
 
   </StackLayout>
 </ScrollView>
